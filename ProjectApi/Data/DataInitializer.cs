@@ -20,7 +20,7 @@ namespace ProjectApi.Data
                 new GitProject
                 {
                     ProjectName = "BankApplication",
-                    Technology = new List<TechStack>
+                    Technologies = new List<TechStack>
                     {
                         new TechStack { Technology = "HTML", TechIconUrl = techIconUrls["HTML"] },
                         new TechStack { Technology = "CSS", TechIconUrl = techIconUrls["CSS"] },
@@ -28,28 +28,34 @@ namespace ProjectApi.Data
                         new TechStack { Technology = "ASP.NET", TechIconUrl = techIconUrls["ASP.NET"]}
                     },
                     Date = new DateOnly(2024, 04, 02),
-                    Description = "Test"
+                    Description = "Test",
+                    GithubUrl = "https://github.com/Milles98/BankSolution",
+                    LiveDemoUrl = "https://millesbankapp.azurewebsites.net/"
                 },
                 new GitProject
                 {
                     ProjectName = "React App",
-                    Technology = new List<TechStack>
+                    Technologies = new List<TechStack>
                     {
                         new TechStack {Technology = "HTML", TechIconUrl = techIconUrls["HTML"]},
                         new TechStack {Technology = "CSS", TechIconUrl = techIconUrls["CSS"]}
                     },
                     Date = new DateOnly(2024, 01, 01),
-                    Description = "Test"
+                    Description = "Test",
+                    GithubUrl = "https://github.com/Milles98/mille-silicion-react",
+                    LiveDemoUrl = "https://mille-silicion-react.vercel.app/"
                 },
                 new GitProject
                 {
                     ProjectName = "WebApi",
-                    Technology = new List<TechStack>
+                    Technologies = new List<TechStack>
                     {
                         new TechStack {Technology = "C#", TechIconUrl = techIconUrls["C#"]}
                     },
                     Date = new DateOnly(2024, 04, 01),
-                    Description = "Test"
+                    Description = "Test",
+                    GithubUrl = "https://github.com/Milles98/MillesAPIAssignment",
+                    LiveDemoUrl = "https://advertisementapi.azurewebsites.net/swagger/index.html"
                 }
             };
         }
