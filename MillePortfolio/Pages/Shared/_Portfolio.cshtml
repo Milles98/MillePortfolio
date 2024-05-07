@@ -1,3 +1,7 @@
 ﻿<div class="portfolio-start container">
     <h2>Portfolio</h2>
+    @foreach(var project in Model)
+    {
+        <partial name="_Project" model="project" />
+    }
 </div>
