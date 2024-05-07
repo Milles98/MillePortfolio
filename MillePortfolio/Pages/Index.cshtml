@@ -4,13 +4,30 @@
     ViewData["Title"] = "Home page";
 }
 
-
 @* HERO LANDING PAGE *@
 @await Html.PartialAsync("_LandingPage")
 
-
-
-@* ABOUT INFORMATION  *@
+@* ABOUT SECTION  *@
 <section id="about">
     @await Html.PartialAsync("_About")
+</section>
+
+@* KNOWLEDGE SECTION *@
+<section id="knowledge">
+    @await Html.PartialAsync("_Knowledge")
+</section>
+
+@* PORTFOLIO SECTION /w API *@
+<section id="portfolio">
+    @await Html.PartialAsync("_Portfolio")
+</section>
+
+@* REFERENCE SECTION *@
+<section id="reference">
+    @await Html.PartialAsync("_Reference")
+</section>
+
+@* CONTACT FORM SECTION  *@
+<section id="contact">
+    @await Html.PartialAsync("_ContactForm")
 </section>
