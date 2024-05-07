@@ -1,0 +1,21 @@
+﻿@model MillePortfolio.Models.WeatherModel
+
+<a class="nav-link text-dark">
+    @if (double.TryParse(Model.Temperature, out var temp))
+    {
+        if (temp > 30)
+        {
+            <i class="fas fa-sun"></i> <!-- sunny icon -->
+        }
+        else if (temp > 20)
+        {
+            <i class="fas fa-cloud-sun"></i> <!-- partly cloudy icon -->
+        }
+        else
+        {
+            <i class="fas fa-cloud"></i> <!-- cloudy icon -->
+        }
+    }
+    @Model.Location
+    @Model.Temperature&#8451;
+</a>
