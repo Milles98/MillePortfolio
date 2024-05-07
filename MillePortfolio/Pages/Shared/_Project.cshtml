@@ -3,10 +3,10 @@
 
 <div class="project">
     <h3>@Model.ProjectName</h3>
-    <p>@Model.Description</p>
-    @foreach(var tech in Model.Technology)
+    @foreach (var tech in Model.Technology)
     {
-        <i class="@tech.TechIcon" style="font-size: 50px;"></i>
+        <img src="@tech.TechIconUrl" alt="@tech.Technology logo" class="tech-icon" />
     }
+    <p>Created: @Model.Date</p>
+    <p>@Model.Description</p>
 </div>
- 
