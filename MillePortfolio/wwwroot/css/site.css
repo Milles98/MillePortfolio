@@ -42,11 +42,19 @@ body {
 
 /*NAVBAR*/
 .navbar {
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: transparent !important;
     z-index: 1;
     border: none !important;
+    transition: background 0.3s ease;
 }
+
+    .navbar.scrolled {
+        background: rgba(0, 0, 0, 0.4) !important; /* Change this to the color you want */
+    }
+
 
 .custom-container {
     width: 80%;
@@ -62,7 +70,7 @@ body {
 
 /*About about about*/
 .about-start {
-    margin-top: 93vh;
+    margin-top: 100vh;
     padding-top: 35px;
     text-align: center;
     margin-bottom: 3000px;
