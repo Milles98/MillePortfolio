@@ -36,8 +36,11 @@ body {
     margin-top: 200px;
 }
 
-/*NAVBAR*/
+.cv-text {
+    color: white;
+}
 
+/*NAVBAR*/
 .navbar {
     position: relative;
     background: transparent !important;
@@ -45,8 +48,20 @@ body {
     border: none !important;
 }
 
-/*CV CV CV*/
-.cv-start {
+.custom-container {
+    width: 80%;
+}
+
+.navbar .nav-link {
+    color: white;
+}
+
+    .navbar .nav-link:hover {
+        color: orange !important;
+    }
+
+/*About about about*/
+.about-start {
     margin-top: 93vh;
     padding-top: 35px;
     text-align: center;
