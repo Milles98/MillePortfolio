@@ -1,14 +1,18 @@
 ﻿@using MillePortfolio.Models
 @model GitProject
 
-<div class="project">
-    <h3>@Model.ProjectName</h3>
-    @foreach (var tech in Model.Technologies)
-    {
-        <img src="@tech.TechIconUrl" alt="@tech.Technology logo" class="tech-icon" />
-    }
-    <p>Created: @Model.Date</p>
-    <p>@Model.Description</p>
-    <a href="@Model.GithubUrl" target="_blank"><i class="fa-brands fa-github" style="font-size: 2rem;"></i></a>
-    <a href="@Model.LiveDemoUrl" target="_blank"><i class="fa-solid fa-eye" style="font-size: 2rem;"></i></a>
+<div class="project card">
+    <div class="card-header">
+        <h3>@Model.ProjectName</h3>
+    </div>
+    <div class="card-body">
+        @foreach (var tech in Model.Technologies)
+        {
+            <img src="@tech.TechIconUrl" alt="@tech.Technology logo" class="tech-icon" />
+        }
+        <p>Created: @Model.Date</p>
+        <p>@Model.Description</p>
+        <a href="@Model.GithubUrl" target="_blank"><i class="fa-brands fa-github" style="font-size: 2rem;"></i></a>
+        <a href="@Model.LiveDemoUrl" target="_blank"><i class="fa-solid fa-eye" style="font-size: 2rem;"></i></a>
+    </div>
 </div>
