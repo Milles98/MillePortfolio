@@ -20,3 +20,39 @@ html {
 body {
     margin-bottom: 60px;
 }
+
+/*HERO LANDING PAGE*/
+.hero-image {
+    background-image: url('../img/mille-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.hero-text {
+    margin-top: 200px;
+}
+
+/*NAVBAR*/
+
+.navbar {
+    position: relative;
+    background: transparent !important;
+    z-index: 1;
+    border: none !important;
+}
+
+/*CV CV CV*/
+.cv-start {
+    margin-top: 93vh;
+    padding-top: 35px;
+    text-align: center;
+    margin-bottom: 3000px;
+}
+
+.main-color {
+    background-color: lightgray;
+}
