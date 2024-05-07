@@ -1,0 +1,12 @@
+﻿@using MillePortfolio.Models
+@model GitProject
+
+<div class="project">
+    <h3>@Model.ProjectName</h3>
+    <p>@Model.Description</p>
+    @foreach(var tech in Model.Technology)
+    {
+        <i class="@tech.TechIcon" style="font-size: 50px;"></i>
+    }
+</div>
+ 
