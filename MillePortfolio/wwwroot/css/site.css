@@ -52,7 +52,7 @@ body {
 }
 
     .navbar.scrolled {
-        background: rgba(0, 0, 0, 0.4) !important; /* Change this to the color you want */
+        background: white !important; /* Change this to the color you want */
     }
 
 
@@ -69,12 +69,17 @@ body {
     }
 
 /*About about about*/
+.knowledge-start, .portfolio-start, .reference-start, .contact-form-start {
+    padding-top: 65px;
+    text-align: center;
+}
+
 .about-start {
     margin-top: 100vh;
-    padding-top: 35px;
+    padding-top: 65px;
     text-align: center;
-    margin-bottom: 3000px;
 }
+
 
 .main-color {
     background-color: lightgray;
