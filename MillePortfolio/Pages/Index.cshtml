@@ -6,19 +6,11 @@
 
 
 @* HERO LANDING PAGE *@
-
-<div class="hero-image">
-    <div class="text-center">
-        <h1 class="display-4 hero-text">Hi, my name is Mille Elfver</h1>
-        <p>I'm a .NET Developer</p>
-    </div>
-</div>
+@await Html.PartialAsync("_LandingPage")
 
 
-@* CV INFORMATION  *@
 
-<section>
-    <div class="cv-start">
-        <h2>Mitt CV</h2>
-    </div>
+@* ABOUT INFORMATION  *@
+<section id="about">
+    @await Html.PartialAsync("_About")
 </section>
