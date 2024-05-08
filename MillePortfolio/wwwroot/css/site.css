@@ -21,20 +21,68 @@ body {
     margin-bottom: 60px;
 }
 
+/*GENERAL GENERAL GENERAL*/
+
+
 /*HERO LANDING PAGE*/
 .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     background-image: url('../img/mille-hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
 }
 
-.hero-text {
-    margin-top: 200px;
+    .hero-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Ändra sista värdet för att justera mörkheten */
+        z-index: 1;
+    }
+
+.hero-text, .landing-text, .btn {
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+    position: relative;
 }
+
+@media (max-width: 767px) {
+    .hero-text {
+        margin-top: 260px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-text {
+        margin-top: 200px;
+    }
+}
+
+.equal-width {
+    display: inline-block;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .equal-width {
+        width: 150px;
+    }
+}
+
+@media (max-width: 767px) {
+    .equal-width {
+        width: 100px;
+    }
+}
+
 
 .cv-text {
     color: white;
@@ -46,14 +94,29 @@ body {
     top: 0;
     width: 100%;
     background: transparent !important;
-    z-index: 1;
+    z-index: 3;
+    color: white;
     border: none !important;
     transition: background 0.3s ease;
 }
 
+
     .navbar.scrolled {
         background: white !important;
+        color: black !important;
     }
+
+        .navbar.scrolled .navbar-brand {
+            color: black !important;
+        }
+
+        .navbar.scrolled .nav-link {
+            color: black !important;
+        }
+
+            .navbar.scrolled .nav-link:hover {
+                color: #0DCAF0 !important;
+            }
 
 
 .custom-container {
@@ -65,7 +128,7 @@ body {
 }
 
     .navbar .nav-link:hover {
-        color: orange !important;
+        color: #0DCAF0 !important;
     }
 
 /*About about about*/
