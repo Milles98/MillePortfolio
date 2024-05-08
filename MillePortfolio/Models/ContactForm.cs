@@ -1,10 +1,20 @@
-﻿namespace MillePortfolio.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MillePortfolio.Models
 {
     public class ContactForm
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Subject { get; set; }
-        public string Message { get; set; }
+        [Required(ErrorMessage = "Namn är obligatoriskt.")]
+        public string Name { get; set; } = null!;
+
+        [Required(ErrorMessage = "Email är obligatoriskt.")]
+        [EmailAddress(ErrorMessage = "Ogiltig emailadress.")]
+        public string Email { get; set; } = null!;
+
+        [Required(ErrorMessage = "Ämne är obligatoriskt.")]
+        public string Subject { get; set; } = null!;
+
+        [Required(ErrorMessage = "Meddelande är obligatoriskt.")]
+        public string Message { get; set; } = null!;
     }
 }

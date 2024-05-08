@@ -12,15 +12,11 @@ namespace MillePortfolio.Pages
         [BindProperty]
         public ContactForm Contact { get; set; }
 
-        public void OnGet()
-        {
-        }
-
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage("/Index");
             }
 
             try
