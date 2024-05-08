@@ -23,6 +23,14 @@ body {
 
 /*GENERAL GENERAL GENERAL*/
 
+.card {
+    transition: transform 0.3s;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
 
 /*HERO LANDING PAGE*/
 .hero-image {
@@ -164,4 +172,27 @@ body {
     width: 100px;
     height: 100px;
     object-fit: cover;
+}
+
+/*REFERENCE REFERENCE REFERENCE*/
+
+.card-header .row > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body .row > div {
+    display: flex;
+    align-items: center;
+}
+
+.star-color {
+    color: yellow;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+
+.reference-image {
+    width: 100%;
 }
