@@ -95,14 +95,13 @@ body {
     width: 100%;
     background: transparent !important;
     z-index: 3;
-    color: white;
     border: none !important;
     transition: background 0.3s ease;
 }
 
 
     .navbar.scrolled {
-        background: white !important;
+        background: #FAF9F6 !important;
         color: black !important;
     }
 
@@ -123,13 +122,9 @@ body {
     width: 80%;
 }
 
-.navbar .nav-link {
-    color: white;
+.navbar .nav-link:hover {
+    color: #0DCAF0 !important;
 }
-
-    .navbar .nav-link:hover {
-        color: #0DCAF0 !important;
-    }
 
 /*About about about*/
 .knowledge-start, .portfolio-start, .reference-start, .contact-form-start {
@@ -148,8 +143,23 @@ body {
     background-color: lightgray;
 }
 
+/*KNOWLEDGE KNOWLEDGE*/
+
+.skill-image {
+    width: 100px; /* Ändra till önskad bredd */
+    height: 100px; /* Ändra till önskad höjd */
+    object-fit: contain;
+}
+
 
 /*PORTFOLIO / PROJECT*/
+.card-img {
+    float: left; /* Placerar bilden till vänster */
+    width: 20%; /* Ställer in bredden på bilden till 20% av kortets bredd */
+    height: auto; /* Behåller bildens ursprungliga proportioner */
+    margin-right: 10px; /* Lägger till lite utrymme till höger om bilden */
+}
+
 .tech-icon {
     width: 100px;
     height: 100px;
