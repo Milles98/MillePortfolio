@@ -16,30 +16,33 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-transparent border-bottom box-shadow mb-3 navbar-scrolled">
             <div class="container custom-container">
-                <a class="navbar-brand text-dark" asp-area="" asp-page="/Index">Mille Elfver</a>
+                <a class="navbar-brand text-white d-sm-none" asp-area="" asp-page="/Index">Mille Elfver</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
+                        <li class="nav-item d-none d-sm-block">
+                            <a class="navbar-brand nav-link text-white" asp-area="" asp-page="/Index">Mille Elfver</a>
+                        </li>
                         <li class="nav-item">
                             @await Component.InvokeAsync("Weather")
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#about">Om mig</a>
+                            <a class="nav-link text-white" href="#about">Om mig</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#knowledge">Kunskaper</a>
+                            <a class="nav-link text-white" href="#knowledge">Kunskaper</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#portfolio">Portfolio</a>
+                            <a class="nav-link text-white" href="#portfolio">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#reference">Referenser</a>
+                            <a class="nav-link text-white" href="#reference">Referenser</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#contact">Kontakt</a>
+                            <a class="nav-link text-white" href="#contact">Kontakt</a>
                         </li>
                         <!-- Add more links as needed -->
                     </ul>
@@ -67,7 +70,12 @@
     <script>
         window.addEventListener("scroll", function () {
             var navbar = document.querySelector(".navbar");
-            navbar.classList.toggle("scrolled", window.scrollY > 0);
+            var navbarBrand = document.querySelector(".navbar .navbar-brand");
+            var navbarToggler = document.querySelector(".navbar .navbar-toggler");
+            var isScrolled = window.scrollY > 0;
+            navbar.classList.toggle("scrolled", isScrolled);
+            navbarBrand.style.color = isScrolled ? "black" : "white";
+            navbarToggler.style.color = isScrolled ? "black" : "white";
         });
     </script>
 
