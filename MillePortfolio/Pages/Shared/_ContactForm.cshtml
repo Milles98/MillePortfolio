@@ -1,3 +1,26 @@
 ﻿<div class="contact-form-start container">
     <h2>Kontakt</h2>
+    <form method="post" asp-page="/Contact">
+        <div class="form-row">
+            <div class="d-flex justify-content-between">
+                <div class="form-group col-md-6">
+                    <label for="inputName">Namn</label>
+                    <input type="text" class="form-control" id="inputName" name="Contact.Name" placeholder="Ditt namn">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="Contact.Email" placeholder="Din email">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputSubject">Ämne</label>
+            <input type="text" class="form-control" id="inputSubject" name="Contact.Subject" placeholder="Ämne">
+        </div>
+        <div class="form-group">
+            <label for="inputMessage">Meddelande</label>
+            <textarea class="form-control" id="inputMessage" name="Contact.Message" rows="3" placeholder="Ditt meddelande"></textarea>
+        </div>
+        <button type="submit" class="btn btn-info mx-auto d-block">Skicka</button>
+    </form>
 </div>
