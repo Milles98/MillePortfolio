@@ -1,3 +1,39 @@
-﻿<div class="knowledge-start container">
+﻿@{
+    var skills = new Dictionary<string, string>
+    {
+        { "LINQ", "./img/technologies/linq.jpg" },
+        { "ASP.NET", "./img/technologies/asp.net.logo.png" },
+        { "React", "./img/technologies/react-icon.png"},
+        { "C#", "./img/technologies/csharp-icon.png"},
+        { "Git", "./img/technologies/git-icon.png"},
+        { "Azure", "./img/technologies/azure.svg"},
+        { "JavaScript", "./img/technologies/javascript-icon.webp"},
+        { "ASP.NET MVC", "./img/technologies/asp.net-mvc-icon.jpg"},
+        { "HTML", "./img/technologies/html-icon.jpg"},
+        { ".NET Core", "./img/technologies/net.core-icon.png"},
+        { "CSS", "./img/technologies/css-icon.png"},
+    };
+}
+
+<div class="knowledge-start container">
     <h2>Kunskaper</h2>
+    <div class="row">
+        @foreach (var skill in skills)
+        {
+            <div class="col-md-2">
+                <div class="card mb-3 shadow">
+                    <div class="card-header">
+                        <h5>@skill.Key</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="@skill.Value" alt="@skill.Key image" class="img-fluid skill-image">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+
+
+@*  "LINQ", "ASP.NET", "SQL", "React", "C#", "Git", "Azure", "JavaScript", "ASP.NET MVC", "HTML", ".NET Core", "CSS" }) *@
