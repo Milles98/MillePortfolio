@@ -1,3 +1,7 @@
+body, button, input, select, optgroup, textarea {
+    font-family: 'Open Sans', sans-serif;
+}
+
 html {
     font-size: 14px;
 }
@@ -195,4 +199,21 @@ body {
 
 .reference-image {
     width: 100%;
+}
+
+/*CONTACT CONTACT CONTACT*/
+
+@media (min-width: 768px) {
+    .contact-form-start form {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+.top-left-contact {
+    padding-right: 5px;
+}
+
+.top-right-contact {
+    padding-left: 5px;
 }
