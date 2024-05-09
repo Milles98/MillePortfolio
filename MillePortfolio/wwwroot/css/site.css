@@ -27,6 +27,12 @@ body {
 
 /*GENERAL GENERAL GENERAL*/
 
+h2 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .card {
     transition: transform 0.3s;
 }
@@ -37,10 +43,13 @@ body {
 
 .card-header {
     /*background-color: #71994d;*/
-    background-color: #5f8041;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: gray;
     color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-header {
+    background-color: #5f8041 !important;
 }
 
 .btn-info {
@@ -203,6 +212,13 @@ body {
     object-fit: contain;
 }
 
+.knowledge-start h2 {
+    display: block;
+    background-color: #5f8041;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+}
 
 /*PORTFOLIO / PROJECT*/
 .card-img {
@@ -218,7 +234,23 @@ body {
     object-fit: cover;
 }
 
+.portfolio-start h2 {
+    display: block;
+    background-color: #5f8041;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
 /*REFERENCE REFERENCE REFERENCE*/
+
+.reference-start h2 {
+    display: block;
+    background-color: #5f8041;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+}
 
 .card-header .row > div {
     display: flex;
@@ -257,6 +289,14 @@ body {
 
 
 /*CONTACT CONTACT CONTACT*/
+
+.contact-form-start h2 {
+    display: block;
+    background-color: #5f8041;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+}
 
 @media (min-width: 768px) {
     .contact-form-start form {
