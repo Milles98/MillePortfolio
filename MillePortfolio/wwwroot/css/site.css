@@ -35,6 +35,29 @@ body {
         transform: scale(1.05);
     }
 
+.card-header {
+    /*background-color: #71994d;*/
+    background-color: #5f8041;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-info {
+    background-color: #5f8041;
+    border: none;
+}
+
+    .btn-info:hover {
+        background-color: #b1f078;
+        border: none;
+    }
+
+.weather-color {
+    color: #b1f078 !important;
+}
+
+
 
 /*HERO LANDING PAGE*/
 .hero-image {
@@ -126,8 +149,13 @@ body {
         }
 
             .navbar.scrolled .nav-link:hover {
-                color: #0DCAF0 !important;
+                color: #455734 !important;
             }
+
+            .navbar.scrolled .nav-link.weather-color:hover {
+                color: #5f8041 !important;
+            }
+
 
 
 .custom-container {
@@ -135,8 +163,13 @@ body {
 }
 
 .navbar .nav-link:hover {
-    color: #0DCAF0 !important;
+    color: #b1f078 !important;
 }
+
+.navbar .nav-link.weather-color:hover {
+    color: white !important;
+}
+
 
 /*About about about*/
 .knowledge-start, .portfolio-start, .reference-start, .contact-form-start {

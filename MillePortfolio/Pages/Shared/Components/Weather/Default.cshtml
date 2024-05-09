@@ -1,6 +1,6 @@
 ﻿@model MillePortfolio.Models.WeatherModel
 
-<a href="https://www.klart.se/se/stockholms-l%C3%A4n/v%C3%A4der-stockholm/" target="_blank" class="nav-link text-white">
+<a href="https://www.klart.se/se/stockholms-l%C3%A4n/v%C3%A4der-stockholm/" target="_blank" class="nav-link weather-color">
     @if (double.TryParse(Model.Temperature, out var temp))
     {
         if (temp > 30)
