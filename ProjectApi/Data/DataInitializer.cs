@@ -17,6 +17,9 @@ namespace ProjectApi.Data
                 {"JavaScript", "https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" }
             };
 
+            //OM JAG BEHÖVER MER BILDER FÖR PROJEKT I FRAMTIDEN:
+            //https://postimages.org/
+
             Projects = new List<GitProject>
             {
                 new GitProject
