@@ -73,9 +73,7 @@ namespace ProjectApi.Data
                     Description = "WebApi är ett RESTful API byggt med .NET 8.0, designat för att hantera annonser. " +
                     "Det tillhandahåller slutpunkter för att skapa, hämta, uppdatera och radera annonser. " +
                     "API:et stöder även partiella uppdateringar via HTTP PATCH och inkluderar autentiserings- och auktoriseringsmekanismer. " +
-                    "API:et använder JWT för autentisering. För att autentisera, skicka en POST-begäran till /api/ads/login med ett JSON-objekt som innehåller Username och Password fält. " +
-                    "Svaret kommer att inkludera en JWT-token som ska inkluderas i Authorization-headern för efterföljande förfrågningar, prefixad med Bearer. " +
-                    "För att delvis uppdatera en annons, skicka en PATCH-begäran till /api/ads/{id} med en JSON-array av patch-operationer i förfrågningskroppen.",
+                    "API:et använder JWT för autentisering.",
 
                     GithubUrl = "https://github.com/Milles98/MillesAPIAssignment",
                     LiveDemoUrl = "https://advertisementapi.azurewebsites.net/swagger/index.html"
