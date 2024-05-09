@@ -243,6 +243,13 @@ h2 {
     border-radius: 5px;
 }
 
+.project-img {
+    width: 100%; /* Ändra till önskad bredd */
+    height: 100%; /* Ändra till önskad höjd */
+    object-fit: contain; /* Behåller bildens ursprungliga proportioner */
+}
+
+
 /*REFERENCE REFERENCE REFERENCE*/
 
 .reference-start h2 {
