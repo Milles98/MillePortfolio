@@ -210,6 +210,7 @@ h2 {
     width: 100px; /* Ändra till önskad bredd */
     height: 100px; /* Ändra till önskad höjd */
     object-fit: contain;
+    background-color: white;
 }
 
 .knowledge-start h2 {
