@@ -269,6 +269,13 @@ h2 {
     object-fit: contain; /* Behåller bildens ursprungliga proportioner */
 }
 
+@media (max-width: 767px) {
+    .project-img {
+        width: 100%; /* Anpassar bredden till skärmens bredd */
+        height: auto; /* Behåller bildens ursprungliga proportioner */
+    }
+}
+
 .text-collapsed {
     overflow: hidden;
     display: -webkit-box;
@@ -279,6 +286,10 @@ h2 {
 
 
 /*REFERENCE REFERENCE REFERENCE*/
+
+.reference-start .card-body p {
+    font-style: italic;
+}
 
 .reference-start h2 {
     display: block;
@@ -336,7 +347,7 @@ h2 {
 
 @media (min-width: 768px) {
     .contact-form-start form {
-        max-width: 50%;
+        max-width: 100%;
         margin: 0 auto;
     }
 }
