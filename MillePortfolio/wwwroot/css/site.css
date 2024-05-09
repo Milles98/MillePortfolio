@@ -52,12 +52,12 @@ h2 {
     background-color: #5f8041 !important;
 }
 
-.btn-info {
+.btn-secondary {
     background-color: #5f8041;
     border: none;
 }
 
-    .btn-info:hover {
+    .btn-secondary:hover {
         background-color: #b1f078;
         border: none;
     }
