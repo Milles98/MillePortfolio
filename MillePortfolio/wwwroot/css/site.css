@@ -241,6 +241,21 @@ body {
     width: 100%;
 }
 
+.quote-left {
+    font-size: 2em;
+    position: relative;
+    top: -0.5em;
+    color: #5f8041;
+}
+
+.quote-right {
+    font-size: 2em;
+    position: relative;
+    bottom: -0.5em;
+    color: #5f8041;
+}
+
+
 /*CONTACT CONTACT CONTACT*/
 
 @media (min-width: 768px) {
