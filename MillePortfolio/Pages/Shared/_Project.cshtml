@@ -12,10 +12,24 @@
         {
             <img src="@tech.TechIconUrl" alt="@tech.Technology logo" class="tech-icon mb-2" />
         }
-        <p>@Model.Description</p>
+        <p class="text-collapsed description">@Model.Description</p>
+        <button onclick="toggleText(this)" class="btn btn-secondary toggleButton">Visa mer</button>
         <div class="button-container d-flex justify-content-between mt-auto">
             <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github" style="font-size: 2rem; width: 140px;"></i></a>
             <a href="@Model.LiveDemoUrl" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-eye" style="font-size: 2rem; width: 140px;"></i></a>
         </div>
     </div>
 </div>
+
+<script>
+    function toggleText(button) {
+        var text = button.previousElementSibling;
+        if (text.classList.contains("text-collapsed")) {
+            text.classList.remove("text-collapsed");
+            button.innerHTML = "Visa mindre";
+        } else {
+            text.classList.add("text-collapsed");
+            button.innerHTML = "Visa mer";
+        }
+    }
+</script>
