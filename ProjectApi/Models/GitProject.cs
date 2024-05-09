@@ -2,6 +2,7 @@
 {
     public class GitProject
     {
+        public string ProjectImg { get; set; } = null!;
         public string ProjectName { get; set; } = null!;
         public List<TechStack> Technologies { get; set; } = null!;
         public DateOnly Date { get; set; }

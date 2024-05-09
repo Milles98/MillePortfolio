@@ -21,6 +21,7 @@ namespace ProjectApi.Data
             {
                 new GitProject
                 {
+                    ProjectImg = "https://i.postimg.cc/j5xx1Nhq/image-bankapp.png",
                     ProjectName = "BankApplication",
                     Technologies = new List<TechStack>
                     {
@@ -44,6 +45,7 @@ namespace ProjectApi.Data
                 },
                 new GitProject
                 {
+                    ProjectImg = "https://i.postimg.cc/bvCyKrVQ/image-react.png",
                     ProjectName = "React App",
                     Technologies = new List<TechStack>
                     {
@@ -63,6 +65,7 @@ namespace ProjectApi.Data
                 },
                 new GitProject
                 {
+                    ProjectImg = "https://i.postimg.cc/XvWDKgVJ/image-api.png",
                     ProjectName = "WebApi",
                     Technologies = new List<TechStack>
                     {
