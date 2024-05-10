@@ -6,22 +6,26 @@
         <div class="card-header">
             <h3>@Model.ProjectName</h3>
         </div>
-        <div class="card-body project-body">
+        <div class="card-body project-body d-flex flex-column">
             <img src="@Model.ProjectImg" class="project-img" />
             <p class="mt-2">Skapad: @Model.Date</p>
-            @foreach (var tech in Model.Technologies)
-            {
-                <img src="@tech.TechIconUrl" alt="@tech.Technology logo" class="tech-icon mb-2" />
-            }
+            <div class="d-flex flex-wrap justify-content-center">
+                @foreach (var tech in Model.Technologies)
+                {
+                    <img src="@tech.TechIconUrl" alt="@tech.Technology logo" class="tech-icon mb-2" />
+                }
+            </div>
             <p class="text-collapsed description">@Model.Description</p>
-            <button onclick="toggleText(this)" class="btn btn-show-more toggleButton" style="margin-bottom: 20px;"><i class="fa-solid fa-arrow-down"></i></button>
+            <button onclick="toggleText(this)" class="btn btn-show-more toggleButton btn-custom-width mx-auto" style="margin-bottom: 20px;"><i class="fa-solid fa-arrow-down"></i></button>
             <div class="button-container d-flex justify-content-between mt-auto">
-                <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github" style="font-size: 2rem; width: 120px;"></i></a>
-                <a href="@Model.LiveDemoUrl" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-eye" style="font-size: 2rem; width: 120px;"></i></a>
+                <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary">GitHub <i class="fa-brands fa-github" style="font-size: 2rem; width: 120px;"></i></a>
+                <a href="@Model.LiveDemoUrl" target="_blank" class="btn btn-secondary">View Demo<i class="fa-solid fa-eye" style="font-size: 2rem; width: 120px;"></i></a>
             </div>
         </div>
     </div>
 </div>
+
+
 
 <script>
     function toggleText(button) {
