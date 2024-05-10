@@ -1,4 +1,4 @@
-﻿namespace MillePortfolio.ViewComponents
+﻿namespace MillePortfolio.Models
 {
     public class WeatherApiResponse
     {
