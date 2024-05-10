@@ -297,10 +297,26 @@ h2 {
 
 /*PORTFOLIO / PROJECT*/
 .card-img {
-    float: left; /* Placerar bilden till vänster */
-    width: 20%; /* Ställer in bredden på bilden till 20% av kortets bredd */
-    height: auto; /* Behåller bildens ursprungliga proportioner */
-    margin-right: 10px; /* Lägger till lite utrymme till höger om bilden */
+    float: left;
+    width: 20%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project.card {
+    flex: 1 0 auto;
+}
+
+@media (max-width: 767px) {
+    .project-container {
+        flex-direction: column;
+    }
 }
 
 .btn-show-more {
