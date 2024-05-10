@@ -27,6 +27,54 @@ body {
 
 /*GENERAL GENERAL GENERAL*/
 
+.toast-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 9998;
+    display: none;
+}
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #B1F078;
+    animation: toast-progress 4.5s linear;
+}
+
+@keyframes toast-progress {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+.toast-custom {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: #5f8041;
+    color: white;
+}
+
+    .toast-custom .toast-body {
+        background-color: #5f8041;
+        color: white;
+    }
+
+
 button:focus, .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     outline: none;
     box-shadow: none;
