@@ -264,8 +264,8 @@ h2 {
 }
 
 .project-img {
-    width: auto;
-    height: 300px; /* Ändra till önskad höjd */
+    max-width: 100%;
+    height: auto; /* Ändra till önskad höjd */
     object-fit: contain; /* Behåller bildens ursprungliga proportioner */
 }
 
