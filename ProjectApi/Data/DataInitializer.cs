@@ -83,8 +83,32 @@ namespace ProjectApi.Data
 
                     GithubUrl = "https://github.com/Milles98/MillesAPIAssignment",
                     LiveDemoUrl = "https://advertisementapi.azurewebsites.net/swagger/index.html"
+                },
+                new GitProject
+                {
+                    ProjectImg = "https://i.postimg.cc/ZYyzRc2C/Milles-Hotel.png",
+                    ProjectName = "Milles Hotel",
+                    Technologies = new List<TechStack>
+                    {
+                        new TechStack { Technology = "C#", TechIconUrl = techIconUrls["C#"] }
+                    },
+                    Date = new DateOnly(2024, 01, 01),
+                    Description = "MillesHotel-lösningen är en .NET 8.0-applikation som simulerar ett hotellhanteringssystem. " +
+                    "Denna lösning inkluderar två projekt: MillesHotel och MillesHotelLibrary. " +
+                    "MillesHotel är huvudprojektet i lösningen. Det är en konsolapplikation som " +
+                    "tillhandahåller ett användargränssnitt för att interagera med hotellhanteringssystemet. Det " +
+                    "innehåller olika menyer för att hantera bokningar, kunder, rum, fakturor och administrativa uppgifter. " +
+                    "Projektet refererar till MillesHotelLibrary-projektet och flera NuGet-paket. " +
+                    "MillesHotelLibrary är ett klassbibliotek som innehåller kärnlogiken och datamodellerna " +
+                    "för hotellhanteringssystemet. Det inkluderar tjänster för att hantera bokningar, " +
+                    "kunder, rum, fakturor och administrativa uppgifter. Det inkluderar också gränssnitt och " +
+                    "datamodeller som representerar enheterna i systemet. Lösningen använder Entity " +
+                    "Framework Core med en SQL Server-databas. HotelDbContext-klassen i " +
+                    "MillesHotelLibrary-projektet är DbContext för applikationen.",
+                    GithubUrl = "https://github.com/Milles98/MillesHotel",
                 }
-            };
+
+        };
         }
     }
 }
