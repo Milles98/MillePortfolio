@@ -87,14 +87,6 @@ h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.card {
-    transition: transform 0.3s;
-}
-
-    .card:hover {
-        transform: scale(1.05);
-    }
-
 .card-header {
     /*background-color: #71994d;*/
     background-color: gray;
@@ -280,6 +272,15 @@ h2 {
 
 /*KNOWLEDGE KNOWLEDGE*/
 
+.knowledge-card {
+    transition: transform 0.3s;
+}
+
+    .knowledge-card:hover {
+        transform: scale(1.05);
+    }
+
+
 .skill-image {
     width: 100px; /* Ändra till önskad bredd */
     height: 100px; /* Ändra till önskad höjd */
@@ -302,6 +303,11 @@ h2 {
     height: auto;
     margin-right: 10px;
 }
+
+.btn-custom-height {
+    width: 40px; /* Ändra detta värde till önskad höjd */
+}
+
 
 .project-container {
     display: flex;
