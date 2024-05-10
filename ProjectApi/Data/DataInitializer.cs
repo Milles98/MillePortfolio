@@ -25,7 +25,7 @@ namespace ProjectApi.Data
                 new GitProject
                 {
                     ProjectImg = "https://i.postimg.cc/j5xx1Nhq/image-bankapp.png",
-                    ProjectName = "BankApplication",
+                    ProjectName = "Bank Application",
                     Technologies = new List<TechStack>
                     {
                         new TechStack { Technology = "HTML", TechIconUrl = techIconUrls["HTML"] },
@@ -69,7 +69,7 @@ namespace ProjectApi.Data
                 new GitProject
                 {
                     ProjectImg = "https://i.postimg.cc/XvWDKgVJ/image-api.png",
-                    ProjectName = "WebApi",
+                    ProjectName = "Advetisement API",
                     Technologies = new List<TechStack>
                     {
                         new TechStack {Technology = "C#", TechIconUrl = techIconUrls["C#"]},
