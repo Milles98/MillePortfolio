@@ -35,24 +35,24 @@
             <div class="form-row">
                 <div class="d-flex justify-content-between ">
                     <div class="form-group col-md-6 top-left-contact">
-                        <label ></label>
+                        <label></label>
                         <input asp-for="Contact.Name" class="form-control shadow" id="inputName" placeholder="Ditt namn">
                         <span asp-validation-for="Contact.Name" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-6 top-right-contact">
-                        <label ></label>
+                        <label></label>
                         <input asp-for="Contact.Email" class="form-control shadow" id="inputEmail" placeholder="Din email">
                         <span asp-validation-for="Contact.Email" class="text-danger"></span>
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label ></label>
+                <label></label>
                 <input asp-for="Contact.Subject" class="form-control shadow" id="inputSubject" placeholder="Ämne">
                 <span asp-validation-for="Contact.Subject" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label ></label>
+                <label></label>
                 <textarea asp-for="Contact.Message" class="form-control shadow" id="inputMessage" rows="3" placeholder="Ditt meddelande"></textarea>
                 <span asp-validation-for="Contact.Message" class="text-danger"></span>
             </div>
@@ -61,7 +61,30 @@
     </div>
 </section>
 
+<div id="toast-overlay" class="toast-overlay"></div>
+
+<div id="toast" class="toast toast-custom" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+    <div class="toast-body">
+        Meddelandet har skickats!
+    </div>
+    <div class="toast-progress"></div>
+</div>
+
 
 @section Scripts {
     <partial name="Shared/_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+            var showToast = '@TempData["ShowToast"]';
+            if (showToast === 'True') {
+                $('#toast-overlay').show();
+                $('.toast').toast('show');
+            }
+        });
+
+        $('.toast').on('hidden.bs.toast', function () {
+            $('#toast-overlay').hide();
+        });
+    </script>
 }
