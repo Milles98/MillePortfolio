@@ -189,18 +189,18 @@ h2 {
 @media (min-width: 768px) {
     .knowledge-start, .reference-start, .contact-form-start, .about-start {
         scroll-snap-align: start;
-        height: 100vh;
+        height: 75vh;
         width: 100%;
     }
 
     .portfolio-start {
         scroll-snap-align: start;
-        height: 200vh;
+        height: 175vh;
         width: 100%;
     }
 
     .about-start {
-        margin-top: 100vh;
+        margin-top: 75vh;
         padding-top: 65px;
         text-align: center;
     }
