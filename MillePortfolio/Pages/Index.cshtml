@@ -29,5 +29,39 @@
 
 @* CONTACT FORM SECTION  *@
 <section id="contact">
-    @await Html.PartialAsync("_ContactForm")
+    <div class="contact-form-start container">
+        <h2 class="shadow">Kontakta mig</h2>
+        <form method="post">
+            <div class="form-row">
+                <div class="d-flex justify-content-between ">
+                    <div class="form-group col-md-6 top-left-contact">
+                        <label ></label>
+                        <input asp-for="Contact.Name" class="form-control shadow" id="inputName" placeholder="Ditt namn">
+                        <span asp-validation-for="Contact.Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6 top-right-contact">
+                        <label ></label>
+                        <input asp-for="Contact.Email" class="form-control shadow" id="inputEmail" placeholder="Din email">
+                        <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label ></label>
+                <input asp-for="Contact.Subject" class="form-control shadow" id="inputSubject" placeholder="Ämne">
+                <span asp-validation-for="Contact.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label ></label>
+                <textarea asp-for="Contact.Message" class="form-control shadow" id="inputMessage" rows="3" placeholder="Ditt meddelande"></textarea>
+                <span asp-validation-for="Contact.Message" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-secondary equal-width mt-3 mx-auto d-block shadow contact-btn">Skicka <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+    </div>
 </section>
+
+
+@section Scripts {
+    <partial name="Shared/_ValidationScriptsPartial" />
+}
