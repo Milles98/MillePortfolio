@@ -8,7 +8,7 @@
         </div>
         <div class="card-body project-body d-flex flex-column">
             <img src="@Model.ProjectImg" class="project-img" />
-            <p class="mt-2">Skapad: @Model.Date</p>
+            <p class="mt-2">Skapad: @Model.Date.ToString("yyyy-MM")</p>
             <div class="d-flex flex-wrap justify-content-center">
                 @foreach (var tech in Model.Technologies)
                 {

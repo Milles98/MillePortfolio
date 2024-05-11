@@ -46,7 +46,7 @@ namespace ProjectApi.Data
                         new TechStack { Technology = "Azure", TechIconUrl = techIconUrls["Azure"]}
 
                     },
-                    Date = new DateOnly(2024, 04, 02),
+                    Date = new DateOnly(2024, 03, 18),
                     Description = "BankApplication är en omfattande lösning som består av fyra projekt: " +
                     "BankWeb, DataLibrary, MoneyLaunderingSafetyMeasure och WebAPI. " +
                     "BankWeb hanterar användargränssnitt och användarinteraktion, " +
@@ -69,7 +69,7 @@ namespace ProjectApi.Data
                         new TechStack { Technology = "JavaScript", TechIconUrl = techIconUrls["JavaScript"]},
                         new TechStack {Technology = "React", TechIconUrl = techIconUrls["React"]}
                     },
-                    Date = new DateOnly(2024, 01, 01),
+                    Date = new DateOnly(2024, 01, 22),
                     Description = "React App är ett av mina projekt där jag har använt HTML/SCSS, " +
                     "JavaScript och React. Jag har skapat en stilren webbplats som är responsiv " +
                     "och skickar förfrågningar till ett API för att samla in nyheter. Webbplatsen " +
@@ -81,7 +81,7 @@ namespace ProjectApi.Data
                 new GitProject
                 {
                     ProjectImg = "https://i.postimg.cc/XvWDKgVJ/image-api.png",
-                    ProjectName = "Advetisement API",
+                    ProjectName = "Advertisement API",
                     Technologies = new List<TechStack>
                     {
                         new TechStack {Technology = "C#", TechIconUrl = techIconUrls["C#"]},
@@ -90,7 +90,7 @@ namespace ProjectApi.Data
                         new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
                         new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]},
                     },
-                    Date = new DateOnly(2024, 04, 01),
+                    Date = new DateOnly(2024, 03, 18),
                     Description = "WebApi är ett RESTful API byggt med .NET 8.0, designat för att hantera annonser. " +
                     "Det tillhandahåller slutpunkter för att skapa, hämta, uppdatera och radera annonser. " +
                     "API:et stöder även partiella uppdateringar via HTTP PATCH och inkluderar autentiserings- och auktoriseringsmekanismer. " +
@@ -111,7 +111,7 @@ namespace ProjectApi.Data
                         new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
                         new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]}
                     },
-                    Date = new DateOnly(2024, 01, 01),
+                    Date = new DateOnly(2023, 11, 27),
                     Description = "MillesHotel-lösningen är en .NET 8.0-applikation som simulerar ett hotellhanteringssystem. " +
                     "Denna lösning inkluderar två projekt: MillesHotel och MillesHotelLibrary. " +
                     "MillesHotel är huvudprojektet i lösningen. Det är en konsolapplikation som " +
