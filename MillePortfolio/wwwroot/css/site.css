@@ -304,10 +304,10 @@ h2 {
     margin-right: 10px;
 }
 
-.btn-custom-height {
-    width: 40px; /* Ändra detta värde till önskad höjd */
+.btn-fixed-width {
+    width: 150px; /* eller vilken bredd du föredrar */
+    text-align: center;
 }
-
 
 .project-container {
     display: flex;
