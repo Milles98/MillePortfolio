@@ -25,7 +25,7 @@ body {
     margin-bottom: 60px;
 }
 
-/*GENERAL GENERAL GENERAL*/
+/*GENERAL GENERAL GENERAL GENERAL*/
 
 .toast-overlay {
     position: fixed;
@@ -113,7 +113,7 @@ h2 {
 
 
 
-/*HERO LANDING PAGE*/
+/*HERO LANDING PAGE LANDING PAGE LANDING PAGE LANDING PAGE*/
 .hero-image {
     position: absolute;
     top: 0;
@@ -177,7 +177,12 @@ h2 {
     color: white;
 }
 
-/*NAVBAR*/
+/*FOOTER FOOTER FOOTER FOOTER*/
+
+.footer-bg {
+    background-color: #FAF9F6 !important
+}
+/*NAVBAR NAVBAR NAVBAR NAVBAR*/
 .navbar {
     position: fixed;
     top: 0;
@@ -232,7 +237,7 @@ h2 {
 }
 
 
-/*About about about*/
+/*ABOUT ABOUT ABOUT ABOUT ABOUT*/
 .knowledge-start, .portfolio-start, .reference-start, .contact-form-start {
     padding-top: 65px;
     text-align: center;
@@ -256,7 +261,7 @@ h2 {
 }
 
 
-/*KNOWLEDGE KNOWLEDGE*/
+/*KNOWLEDGE KNOWLEDGE KNOWLEDGE KNOWLEDGE*/
 
 .knowledge-card {
     transition: transform 0.3s;
@@ -282,7 +287,7 @@ h2 {
     border-radius: 5px;
 }
 
-/*PORTFOLIO / PROJECT*/
+/*PORTFOLIO / PROJECT PORTFOLIO / PROJECT PORTFOLIO / PROJECT*/
 .card-img {
     float: left;
     width: 20%;
@@ -355,7 +360,7 @@ h2 {
 
 
 
-/*REFERENCE REFERENCE REFERENCE*/
+/*REFERENCE REFERENCE REFERENCE REFERENCE*/
 
 .reference-start .card-body p {
     font-style: italic;
@@ -409,7 +414,7 @@ h2 {
 }
 
 
-/*CONTACT CONTACT CONTACT*/
+/*CONTACT CONTACT CONTACT CONTACT*/
 
 .contact-form-start h2 {
     display: block;
