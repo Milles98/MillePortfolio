@@ -88,7 +88,6 @@ h2 {
 }
 
 .card-header {
-    /*background-color: #71994d;*/
     background-color: gray;
     color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -133,7 +132,7 @@ h2 {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4); /* Ändra sista värdet för att justera mörkheten */
+        background: rgba(0, 0, 0, 0.4);
         z-index: 1;
     }
 
@@ -232,26 +231,6 @@ h2 {
     text-align: center;
 }
 
-/*@media (min-width: 768px) {
-    .knowledge-start, .reference-start, .contact-form-start, .about-start {
-        scroll-snap-align: start;
-        height: 75vh;
-        width: 100%;
-    }
-
-    .portfolio-start {
-        scroll-snap-align: start;
-        height: 210vh;
-        width: 100%;
-    }
-
-    .about-start {
-        margin-top: 75vh;
-        padding-top: 65px;
-        text-align: center;
-    }
-}
-*/
 .about-start {
     margin-top: 100vh;
     padding-top: 65px;
@@ -265,7 +244,7 @@ h2 {
 
 @media (max-width: 767px) {
     .card-img {
-        width: 50% !important; /* Adjust as needed */
+        width: 50% !important;
     }
 }
 
@@ -282,8 +261,8 @@ h2 {
 
 
 .skill-image {
-    width: 100px; /* Ändra till önskad bredd */
-    height: 100px; /* Ändra till önskad höjd */
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     background-color: white;
 }
@@ -305,7 +284,7 @@ h2 {
 }
 
 .btn-fixed-width {
-    width: 150px; /* eller vilken bredd du föredrar */
+    width: 150px;
     text-align: center;
 }
 
@@ -349,21 +328,21 @@ h2 {
 
 .project-img {
     max-width: 100%;
-    height: auto; /* Ändra till önskad höjd */
-    object-fit: contain; /* Behåller bildens ursprungliga proportioner */
+    height: auto;
+    object-fit: contain;
 }
 
 @media (max-width: 767px) {
     .project-img {
-        width: 100%; /* Anpassar bredden till skärmens bredd */
-        height: auto; /* Behåller bildens ursprungliga proportioner */
+        width: 100%;
+        height: auto;
     }
 }
 
 .text-collapsed {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Antal linjer du vill visa */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
