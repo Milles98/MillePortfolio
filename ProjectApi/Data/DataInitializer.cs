@@ -19,7 +19,7 @@ namespace ProjectApi.Data
                 {"SQL", "https://optim.tildacdn.one/tild6238-3035-4335-a333-306335373139/-/resize/824x/-/format/webp/IMG_3349.jpg" },
                 {"EFC", "https://ucarecdn.com/b9980f90-7701-420e-8feb-2e45c5be8775/" },
                 {"SSMS", "https://miro.medium.com/v2/resize:fit:402/1*KTDZHTVaVbvbyhIf2PmBAw.png" },
-                {"Azure", "https://www.stashmedia.tv/wp-content/uploads/Screen-Shot-2021-08-06-at-1.48.52-PM.jpg" }
+                {"Azure", "https://www.svgrepo.com/show/353464/azure.svg" }
 
             };
 
@@ -34,16 +34,16 @@ namespace ProjectApi.Data
                     ProjectName = "Bank Application",
                     Technologies = new List<TechStack>
                     {
-                        new TechStack { Technology = "HTML", TechIconUrl = techIconUrls["HTML"] },
-                        new TechStack { Technology = "CSS", TechIconUrl = techIconUrls["CSS"] },
                         new TechStack { Technology = "C#", TechIconUrl = techIconUrls["C#"]},
                         new TechStack { Technology = "ASP.NET", TechIconUrl = techIconUrls["ASP.NET"]},
+                        new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
+                        new TechStack { Technology = "HTML", TechIconUrl = techIconUrls["HTML"] },
+                        new TechStack { Technology = "CSS", TechIconUrl = techIconUrls["CSS"] },
                         new TechStack { Technology = "JavaScript", TechIconUrl = techIconUrls["JavaScript"]},
                         new TechStack { Technology = "LINQ", TechIconUrl = techIconUrls["LINQ"]},
                         new TechStack { Technology = "SQL", TechIconUrl = techIconUrls["SQL"]},
-                        new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
-                        new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]},
-                        new TechStack { Technology = "Azure", TechIconUrl = techIconUrls["Azure"]}
+                        new TechStack { Technology = "Azure", TechIconUrl = techIconUrls["Azure"]},
+                        new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]}
 
                     },
                     Date = new DateOnly(2024, 03, 18),
@@ -89,6 +89,7 @@ namespace ProjectApi.Data
                         new TechStack { Technology = "LINQ", TechIconUrl = techIconUrls["LINQ"]},
                         new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
                         new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]},
+                        new TechStack { Technology = "Azure", TechIconUrl= techIconUrls["Azure"]}
                     },
                     Date = new DateOnly(2024, 03, 18),
                     Description = "WebApi är ett RESTful API byggt med .NET 8.0, designat för att hantera annonser. " +
