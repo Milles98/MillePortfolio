@@ -387,6 +387,7 @@ h2 {
 
 .quote-left {
     font-size: 2em;
+    padding-right: 4px;
     position: relative;
     top: -0.5em;
     color: #5f8041;
