@@ -188,27 +188,34 @@ h2 {
     transition: background 0.3s ease;
 }
 
+.navbar-nav .nav-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-    .navbar.scrolled {
-        background: #FAF9F6 !important;
+
+
+.navbar.scrolled {
+    background: #FAF9F6 !important;
+    color: black !important;
+}
+
+    .navbar.scrolled .navbar-brand {
         color: black !important;
     }
 
-        .navbar.scrolled .navbar-brand {
-            color: black !important;
+    .navbar.scrolled .nav-link {
+        color: black !important;
+    }
+
+        .navbar.scrolled .nav-link:hover {
+            color: #455734 !important;
         }
 
-        .navbar.scrolled .nav-link {
-            color: black !important;
+        .navbar.scrolled .nav-link.weather-color:hover {
+            color: #5f8041 !important;
         }
-
-            .navbar.scrolled .nav-link:hover {
-                color: #455734 !important;
-            }
-
-            .navbar.scrolled .nav-link.weather-color:hover {
-                color: #5f8041 !important;
-            }
 
 
 
