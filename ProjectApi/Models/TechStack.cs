@@ -2,7 +2,7 @@
 {
     public class TechStack
     {
-        public string Technology { get; set; } = null!;
-        public string TechIconUrl { get; set; } = null!;
+        public int Id { get; set; }
+        public TechIcon TechIcon { get; set; } = null!;
     }
 }
