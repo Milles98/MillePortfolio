@@ -1,26 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ProjectApi.Data;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.JsonPatch;
+using ProjectApi.Data;
 using ProjectApi.Models;
 
 namespace ProjectApi.Controllers
 {
     /// <summary>
-    /// Controller for managing Git projects.
+    /// Controller for managing TechIcons.
     /// </summary>
     [ApiController]
     [Route("[controller]")]
-    public class GitProjectController : Controller
+    public class TechIconController : Controller
     {
         private readonly AppDbContext _context;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GitProjectController"/> class.
+        /// Initializes a new instance of the <see cref="TechIconController"/> class.
         /// </summary>
         /// <param name="context">The application database context.</param>
-        public GitProjectController(AppDbContext context)
+        public TechIconController(AppDbContext context)
         {
             _context = context;
         }
@@ -30,43 +29,43 @@ namespace ProjectApi.Controllers
         /// </summary>
         /// <returns>A list of Git projects.</returns>
         [HttpGet]
-        public async Task<IActionResult> GetProjects()
+        public async Task<IActionResult> GetIcons()
         {
-            var gitProjects = await _context.GitProjects.Include(p => p.Technologies).ThenInclude(t => t.TechIcon).ToListAsync();
-            return Ok(gitProjects);
+            var icons = await _context.TechIcons.ToListAsync();
+            return Ok(icons);
         }
 
         /// <summary>
-        /// Updates a Git project with a specified ID.
+        /// Updates a TechIcon with a specified ID.
         /// </summary>
         /// <remarks>
         /// Sample requests:
         ///
-        ///     Replace the ProjectName property:
+        ///     Replace the Url property:
         ///     [
         ///         {
-        ///             "path": "/ProjectName",
+        ///             "path": "/Url",
         ///             "op": "replace",
-        ///             "value": "Type new title here"
+        ///             "value": "Type new Image URL here"
         ///         }
         ///     ]
         /// </remarks>
-        /// <param name="id">The ID of the Git project to update.</param>
+        /// <param name="id">The ID of the TechIcon to update.</param>
         /// <param name="patchDoc">The JSON Patch document with updates.</param>
-        /// <returns>An updated Git project.</returns>
+        /// <returns>An updated TechIcon.</returns>
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchProject(int id, [FromBody] JsonPatchDocument<GitProject> patchDoc)
+        public async Task<IActionResult> PatchTechIcon(int id, [FromBody] JsonPatchDocument<TechIcon> patchDoc)
         {
             if (patchDoc != null)
             {
-                var gitProject = await _context.GitProjects.FindAsync(id);
+                var techIcon = await _context.TechIcons.FindAsync(id);
 
-                if (gitProject == null)
+                if (techIcon == null)
                 {
                     return NotFound();
                 }
 
-                patchDoc.ApplyTo(gitProject, error =>
+                patchDoc.ApplyTo(techIcon, error =>
                 {
                     string errorMessage = error.ErrorMessage;
                     string affectedPath = error.AffectedObject.GetType().Name;
@@ -78,12 +77,12 @@ namespace ProjectApi.Controllers
                     return BadRequest(ModelState);
                 }
 
-                _context.GitProjects.Update(gitProject);
-                _context.Entry(gitProject).State = EntityState.Modified;
+                _context.TechIcons.Update(techIcon);
+                _context.Entry(techIcon).State = EntityState.Modified;
 
                 await _context.SaveChangesAsync();
 
-                return Ok(gitProject);
+                return Ok(techIcon);
             }
             else
             {

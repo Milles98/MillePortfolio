@@ -1,32 +1,55 @@
-﻿using ProjectApi.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectApi.Models;
 
 namespace ProjectApi.Data
 {
     public class DataInitializer
     {
-        public static List<GitProject> Projects { get; set; }
-        public static void SeedData()
-        {
-            var techIconUrls = new Dictionary<string, string>
-            {
-                {"HTML", "https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo.png" },
-                {"CSS", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" },
-                {"C#", "https://play-lh.googleusercontent.com/FSEp7SDYWWcgdJDy1CkYD9Cb7X7TAkUUZH_-3vJ5O4xN0gtt3Iv1EmhXQXKWm5V74WE" },
-                {"ASP.NET", "https://www.simplilearn.com/ice9/free_resources_article_thumb/ASP.NET_logo.jpg" },
-                {"React", "https://static-00.iconduck.com/assets.00/react-icon-512x512-u6e60ayf.png" },
-                {"JavaScript", "https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" },
-                {"LINQ", "https://www.flowgear.net/wp-content/uploads/2019/03/linq.png" },
-                {"SQL", "https://optim.tildacdn.one/tild6238-3035-4335-a333-306335373139/-/resize/824x/-/format/webp/IMG_3349.jpg" },
-                {"EFC", "https://ucarecdn.com/b9980f90-7701-420e-8feb-2e45c5be8775/" },
-                {"SSMS", "https://miro.medium.com/v2/resize:fit:402/1*KTDZHTVaVbvbyhIf2PmBAw.png" },
-                {"Azure", "https://www.svgrepo.com/show/353464/azure.svg" }
+        private readonly AppDbContext _context;
 
+        public DataInitializer(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public void Initialize()
+        {
+            _context.Database.Migrate();
+
+            if (!_context.TechIcons.Any() && !_context.GitProjects.Any())
+            {
+                SeedData();
+            }
+        }
+
+        public void SeedData()
+        {
+            var techIcons = new List<TechIcon>
+            {
+                new TechIcon { Technology = "HTML", Url = "https://kinsta.com/wp-content/uploads/2021/03/HTML-5-Badge-Logo.png" },
+                new TechIcon { Technology = "CSS", Url = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" },
+                new TechIcon { Technology = "C#", Url = "https://play-lh.googleusercontent.com/FSEp7SDYWWcgdJDy1CkYD9Cb7X7TAkUUZH_-3vJ5O4xN0gtt3Iv1EmhXQXKWm5V74WE" },
+                new TechIcon { Technology = "ASP.NET", Url = "https://www.simplilearn.com/ice9/free_resources_article_thumb/ASP.NET_logo.jpg" },
+                new TechIcon { Technology = "React", Url = "https://static-00.iconduck.com/assets.00/react-icon-512x512-u6e60ayf.png" },
+                new TechIcon { Technology = "JavaScript", Url = "https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" },
+                new TechIcon { Technology = "LINQ", Url = "https://www.flowgear.net/wp-content/uploads/2019/03/linq.png" },
+                new TechIcon { Technology = "SQL", Url = "https://optim.tildacdn.one/tild6238-3035-4335-a333-306335373139/-/resize/824x/-/format/webp/IMG_3349.jpg" },
+                new TechIcon { Technology = "EFC", Url = "https://ucarecdn.com/b9980f90-7701-420e-8feb-2e45c5be8775/" },
+                new TechIcon { Technology = "SSMS", Url = "https://miro.medium.com/v2/resize:fit:402/1*KTDZHTVaVbvbyhIf2PmBAw.png" },
+                new TechIcon { Technology = "Azure", Url = "https://www.svgrepo.com/show/353464/azure.svg" }
             };
+
+            if (!_context.TechIcons.Any())
+            {
+                _context.TechIcons.AddRange(techIcons);
+                _context.SaveChanges();
+            }
+
 
             //OM JAG BEHÖVER MER BILDER FÖR PROJEKT I FRAMTIDEN:
             //https://postimages.org/
 
-            Projects = new List<GitProject>
+            var projects = new List<GitProject>
             {
                 new GitProject
                 {
@@ -34,16 +57,16 @@ namespace ProjectApi.Data
                     ProjectName = "Bank Application",
                     Technologies = new List<TechStack>
                     {
-                        new TechStack { Technology = "C#", TechIconUrl = techIconUrls["C#"]},
-                        new TechStack { Technology = "ASP.NET", TechIconUrl = techIconUrls["ASP.NET"]},
-                        new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
-                        new TechStack { Technology = "HTML", TechIconUrl = techIconUrls["HTML"] },
-                        new TechStack { Technology = "CSS", TechIconUrl = techIconUrls["CSS"] },
-                        new TechStack { Technology = "JavaScript", TechIconUrl = techIconUrls["JavaScript"]},
-                        new TechStack { Technology = "LINQ", TechIconUrl = techIconUrls["LINQ"]},
-                        new TechStack { Technology = "SQL", TechIconUrl = techIconUrls["SQL"]},
-                        new TechStack { Technology = "Azure", TechIconUrl = techIconUrls["Azure"]},
-                        new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]}
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "C#") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "ASP.NET") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "EFC") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "HTML") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "CSS") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "JavaScript") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "LINQ") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "SQL") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "Azure") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "SSMS") }
 
                     },
                     Date = new DateOnly(2024, 03, 18),
@@ -64,10 +87,10 @@ namespace ProjectApi.Data
                     ProjectName = "React App",
                     Technologies = new List<TechStack>
                     {
-                        new TechStack {Technology = "HTML", TechIconUrl = techIconUrls["HTML"]},
-                        new TechStack {Technology = "CSS", TechIconUrl = techIconUrls["CSS"]},
-                        new TechStack { Technology = "JavaScript", TechIconUrl = techIconUrls["JavaScript"]},
-                        new TechStack {Technology = "React", TechIconUrl = techIconUrls["React"]}
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "HTML") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "CSS") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "JavaScript") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "React") },
                     },
                     Date = new DateOnly(2024, 01, 22),
                     Description = "React App är ett av mina projekt där jag har använt HTML/SCSS, " +
@@ -84,12 +107,12 @@ namespace ProjectApi.Data
                     ProjectName = "Advertisement API",
                     Technologies = new List<TechStack>
                     {
-                        new TechStack {Technology = "C#", TechIconUrl = techIconUrls["C#"]},
-                        new TechStack {Technology = "ASP.NET", TechIconUrl = techIconUrls["ASP.NET"]},
-                        new TechStack { Technology = "LINQ", TechIconUrl = techIconUrls["LINQ"]},
-                        new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
-                        new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]},
-                        new TechStack { Technology = "Azure", TechIconUrl= techIconUrls["Azure"]}
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "C#") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "ASP.NET") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "LINQ") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "EFC") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "SSMS") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "Azure") },
                     },
                     Date = new DateOnly(2024, 03, 18),
                     Description = "WebApi är ett RESTful API byggt med .NET 8.0, designat för att hantera annonser. " +
@@ -106,11 +129,11 @@ namespace ProjectApi.Data
                     ProjectName = "Milles Hotel",
                     Technologies = new List<TechStack>
                     {
-                        new TechStack { Technology = "C#", TechIconUrl = techIconUrls["C#"] },
-                        new TechStack { Technology = "LINQ", TechIconUrl = techIconUrls["LINQ"]},
-                        new TechStack { Technology = "SQL", TechIconUrl = techIconUrls["SQL"]},
-                        new TechStack { Technology = "EFC", TechIconUrl = techIconUrls["EFC"]},
-                        new TechStack { Technology = "SSMS", TechIconUrl = techIconUrls["SSMS"]}
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "C#") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "LINQ") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "SQL") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "EFC") },
+                        new TechStack { TechIcon = techIcons.First(ti => ti.Technology == "SSMS") },
                     },
                     Date = new DateOnly(2023, 11, 27),
                     Description = "MillesHotel-lösningen är en .NET 8.0-applikation som simulerar ett hotellhanteringssystem. " +
@@ -128,7 +151,13 @@ namespace ProjectApi.Data
                     GithubUrl = "https://github.com/Milles98/MillesHotel",
                 }
 
-        };
+            };
+
+            if (!_context.GitProjects.Any())
+            {
+                _context.GitProjects.AddRange(projects);
+                _context.SaveChanges();
+            }
         }
     }
 }
