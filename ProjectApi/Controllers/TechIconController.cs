@@ -25,9 +25,9 @@ namespace ProjectApi.Controllers
         }
 
         /// <summary>
-        /// Gets all Git projects.
+        /// Gets all Tech Icons.
         /// </summary>
-        /// <returns>A list of Git projects.</returns>
+        /// <returns>A list of Tech Icons.</returns>
         [HttpGet]
         public async Task<IActionResult> GetIcons()
         {
