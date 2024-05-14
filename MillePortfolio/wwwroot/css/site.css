@@ -25,6 +25,16 @@ body {
     margin-bottom: 60px;
 }
 
+/*.navbar-toggler-icon {
+    filter: invert(1) !important;
+}
+*/
+/*.navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.1) !important
+}
+*/
+
+
 /*GENERAL GENERAL GENERAL GENERAL*/
 
 .toast-overlay {
@@ -145,7 +155,7 @@ h2 {
 
 @media (max-width: 767px) {
     .hero-text {
-        margin-top: 260px;
+        margin-top: 230px;
     }
 }
 
