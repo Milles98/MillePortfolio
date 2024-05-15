@@ -402,6 +402,19 @@ h2 {
     font-style: italic;
 }
 
+@media (min-width: 768px) and (max-width: 1200px) {
+    .reference-role {
+        height: 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .reference-card {
+        height: 500px;
+    }
+}
+
+
 .reference-start h2 {
     display: block;
     background-color: #5f8041;
