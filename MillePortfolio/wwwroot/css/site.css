@@ -427,6 +427,31 @@ h2 {
 
 /*CONTACT CONTACT CONTACT CONTACT*/
 
+@media (max-width: 767px) {
+    .icon-mobile-row {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+.large-icon {
+    font-size: 3.5em;
+    color: #5F8041;
+    transition-duration: 0.3s;
+}
+
+    .large-icon:hover {
+        color: #b1f078;
+    }
+
+
+@media (min-width: 767px) {
+    .height-social-card {
+        height: 210px;
+    }
+}
+
 .contact-form-start h2 {
     display: block;
     background-color: #5f8041;
