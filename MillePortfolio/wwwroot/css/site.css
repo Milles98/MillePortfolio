@@ -210,8 +210,6 @@ h2 {
     text-overflow: ellipsis;
 }
 
-
-
 .navbar.scrolled {
     background: #FAF9F6 !important;
     color: black !important;
@@ -265,11 +263,27 @@ h2 {
     background-color: lightgray;
 }
 
-@media (max-width: 767px) {
-    .card-img {
-        width: 50% !important;
-    }
+.about-start .img-fluid {
+    max-width: 100%;
+    height: auto;
 }
+
+.about-start .card {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.about-start .card-title {
+    font-weight: bold;
+    color: #5f8041;
+}
+
+.about-start .card-text {
+    color: #333;
+}
+
+
+
 
 
 /*KNOWLEDGE KNOWLEDGE KNOWLEDGE KNOWLEDGE*/
