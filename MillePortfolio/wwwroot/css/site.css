@@ -251,6 +251,15 @@ h2 {
 
 
 /*ABOUT ABOUT ABOUT ABOUT ABOUT*/
+
+.about-me-card {
+    transition: transform 0.3s;
+}
+
+    .about-me-card:hover {
+        transform: scale(1.03);
+    }
+
 .knowledge-start, .portfolio-start, .reference-start, .contact-form-start {
     padding-top: 65px;
     text-align: center;
