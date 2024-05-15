@@ -28,35 +28,53 @@
 <section id="contact">
     <div class="contact-form-start container">
         <h2 class="shadow">Kontakta mig</h2>
-        <form method="post">
-            <div class="form-row">
-                <div class="d-flex justify-content-between ">
-                    <div class="form-group col-md-6 top-left-contact">
-                        <label></label>
-                        <input asp-for="Contact.Name" class="form-control shadow" id="inputName" placeholder="Ditt namn">
-                        <span asp-validation-for="Contact.Name" class="text-danger"></span>
+        <div class="row">
+            
+            <div class="col-md-8">
+                <form method="post">
+                    <div class="form-row">
+                        <div class="d-flex justify-content-between ">
+                            <div class="form-group col-md-6 top-left-contact">
+                                <label></label>
+                                <input asp-for="Contact.Name" class="form-control shadow" id="inputName" placeholder="Ditt namn">
+                                <span asp-validation-for="Contact.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6 top-right-contact">
+                                <label></label>
+                                <input asp-for="Contact.Email" class="form-control shadow" id="inputEmail" placeholder="Din email">
+                                <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6 top-right-contact">
+                    <div class="form-group">
                         <label></label>
-                        <input asp-for="Contact.Email" class="form-control shadow" id="inputEmail" placeholder="Din email">
-                        <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                        <input asp-for="Contact.Subject" class="form-control shadow" id="inputSubject" placeholder="Ämne">
+                        <span asp-validation-for="Contact.Subject" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <textarea asp-for="Contact.Message" class="form-control shadow" id="inputMessage" rows="3" placeholder="Ditt meddelande"></textarea>
+                        <span asp-validation-for="Contact.Message" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-secondary equal-width mt-3 mx-auto d-block shadow contact-btn">Skicka <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+            <div class="col-md-4 mt-4">
+                <!-- Social icons card -->
+                <div class="card shadow height-social-card">
+                    <h5 class="card-header">Sociala länkar</h5>
+                    <div class="card-body">
+                        <p class="card-text icon-mobile-row">
+                            <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank"><i class="fa-brands fa-linkedin large-icon mb-3"></i></a><br>
+                            <a href="https://github.com/your-github-username" target="_blank"><i class="fa-brands fa-github large-icon"></i></a><br>
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label></label>
-                <input asp-for="Contact.Subject" class="form-control shadow" id="inputSubject" placeholder="Ämne">
-                <span asp-validation-for="Contact.Subject" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label></label>
-                <textarea asp-for="Contact.Message" class="form-control shadow" id="inputMessage" rows="3" placeholder="Ditt meddelande"></textarea>
-                <span asp-validation-for="Contact.Message" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-secondary equal-width mt-3 mx-auto d-block shadow contact-btn">Skicka <i class="fa-solid fa-arrow-right"></i></button>
-        </form>
+        </div>
     </div>
 </section>
+
 
 <div id="toast-overlay" class="toast-overlay"></div>
 
