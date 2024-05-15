@@ -1,13 +1,10 @@
-﻿using System.Text.Json.Serialization;
-
-namespace ProjectApi.Models
+﻿namespace ProjectApi.Models.DTO
 {
-    public class GitProject
+    public class GitProjectDTO
     {
-        public int Id { get; set; }
         public string ProjectImg { get; set; } = null!;
         public string ProjectName { get; set; } = null!;
-        public List<TechStack> Technologies { get; set; } = new List<TechStack>();
+        public List<int> Technologies { get; set; } = new List<int>();
         public DateOnly Date { get; set; }
         public string Description { get; set; } = null!;
         public string? GithubUrl { get; set; }

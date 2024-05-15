@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectApi.Data;
 using ProjectApi.Models;
+using ProjectApi.Models.DTO;
 
 namespace ProjectApi.Controllers
 {
@@ -34,6 +35,46 @@ namespace ProjectApi.Controllers
             var icons = await _context.TechIcons.ToListAsync();
             return Ok(icons);
         }
+
+        /// <summary>
+        /// Creates a new TechIcon.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /TechIcon
+        ///     {
+        ///        "Technology": "Technology Name",
+        ///        "Url": "icon_url"
+        ///     }
+        /// </remarks>
+        /// <param name="newTechIconDto">The TechIcon to create.</param>
+        /// <returns>A newly created TechIcon.</returns>
+        /// <response code="201">Returns the newly created TechIcon.</response>
+        /// <response code="400">If the TechIcon is null or invalid.</response> 
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> CreateTechIcon([FromBody] TechIconDTO newTechIconDto)
+        {
+            if (newTechIconDto == null)
+            {
+                return BadRequest("TechIcon data is null");
+            }
+
+            var newTechIcon = new TechIcon
+            {
+                Technology = newTechIconDto.Technology,
+                Url = newTechIconDto.Url
+            };
+
+            await _context.TechIcons.AddAsync(newTechIcon);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetIcons), new { id = newTechIcon.Id }, newTechIcon);
+        }
+
+
 
         /// <summary>
         /// Updates a TechIcon with a specified ID.
@@ -89,5 +130,33 @@ namespace ProjectApi.Controllers
                 return BadRequest(ModelState);
             }
         }
+
+        /// <summary>
+        /// Deletes a TechIcon with a specified ID.
+        /// </summary>
+        /// <param name="id">The ID of the TechIcon to delete.</param>
+        /// <returns>No content.</returns>
+        /// <response code="204">If the TechIcon is deleted successfully.</response>
+        /// <response code="404">If the TechIcon is not found.</response> 
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteTechIcon(int id)
+        {
+            var techIcon = await _context.TechIcons.FindAsync(id);
+
+            if (techIcon == null)
+            {
+                return NotFound();
+            }
+
+            _context.TechIcons.Remove(techIcon);
+            await _context.SaveChangesAsync();
+
+            var remainingIcons = await _context.TechIcons.ToListAsync();
+
+            return Ok(remainingIcons);
+        }
+
     }
 }
