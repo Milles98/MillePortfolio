@@ -194,6 +194,9 @@ h2 {
         font-size: 18px;
     }
 
+.footer-number {
+    margin-top: -20px;
+}
 /*NAVBAR NAVBAR NAVBAR NAVBAR*/
 .navbar {
     position: fixed;
@@ -454,6 +457,10 @@ h2 {
         display: flex;
         justify-content: center;
         gap: 10px;
+    }
+
+    .social-links-mobile {
+        margin-bottom: 70px;
     }
 }
 
