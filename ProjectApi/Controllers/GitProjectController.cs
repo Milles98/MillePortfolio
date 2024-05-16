@@ -83,7 +83,6 @@ namespace ProjectApi.Controllers
                 LiveDemoUrl = newProjectDto.LiveDemoUrl
             };
 
-            // Load the TechIcon objects for the provided IDs
             foreach (var techIconId in newProjectDto.Technologies)
             {
                 var techIcon = await _context.TechIcons.FindAsync(techIconId);
