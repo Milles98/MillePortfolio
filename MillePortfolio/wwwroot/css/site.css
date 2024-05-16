@@ -482,7 +482,11 @@ h2 {
     }
 
     .social-links-mobile {
-        margin-bottom: 70px;
+        margin-bottom: 60px;
+    }
+
+    .mobile-contact-form {
+        margin-bottom: -90px;
     }
 }
 
