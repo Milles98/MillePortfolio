@@ -504,14 +504,24 @@ h2 {
     }
 }
 
-.large-icon {
+.linkedin-icon {
     font-size: 3.5em;
-    color: #5F8041;
+    color: #0077B5;
     transition-duration: 0.3s;
 }
 
-    .large-icon:hover {
-        color: #b1f078;
+    .linkedin-icon:hover {
+        color: #28b2fa;
+    }
+
+.github-icon {
+    font-size: 3.5em;
+    color: #171515;
+    transition-duration: 0.3s;
+}
+
+    .github-icon:hover {
+        color: #918484;
     }
 
 
