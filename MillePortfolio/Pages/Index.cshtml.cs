@@ -65,6 +65,9 @@ namespace MillePortfolio.Pages
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Det gick ej att skicka meddelandet");
+                TempData["ShowToast"] = false;
+                TempData["ErrorMessage"] = "Det gick inte att skicka meddelandet";
             }
 
 
