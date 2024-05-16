@@ -4,6 +4,7 @@ using MillePortfolio.Models;
 using Newtonsoft.Json;
 using System.Net.Mail;
 using System.Net;
+using System.Net.Http.Headers;
 
 namespace MillePortfolio.Pages
 {
@@ -16,7 +17,7 @@ namespace MillePortfolio.Pages
         {
             _logger = logger;
             _http = http;
-            GitProjects = new List<GitProject>();
+            //GitProjects = new List<GitProject>();
         }
 
         public List<GitProject> GitProjects { get; set; }
@@ -26,7 +27,13 @@ namespace MillePortfolio.Pages
 
         public async Task OnGetAsync()
         {
-            var response = await _http.GetAsync("https://milleprojectapi.azurewebsites.net/GitProject");
+            _http.BaseAddress = new Uri("https://milleprojectapi.azurewebsites.net");
+            _http.DefaultRequestHeaders.Accept.Clear();
+            _http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = await _http.GetAsync("/GitProject");
+
+            //var response = await _http.GetAsync("https://milleprojectapi.azurewebsites.net/GitProject");
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
