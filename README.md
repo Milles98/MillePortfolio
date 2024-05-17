@@ -1,4 +1,4 @@
-# MillePortfolio & Restful ProjectApi
+# MillePortfolio & RESTful ProjectApi
 
 ## Project Overview
 This repository contains two main projects:
@@ -7,7 +7,7 @@ MillePortfolio: A .NET 8.0 web application showcasing a portfolio of projects, f
 
 https://millesportfolio.azurewebsites.net/
 
-ProjectApi: A Restful .NET 8.0 Web API project that provides data about Git projects, utilizing Swashbuckle for API documentation. The API is hosted on Azure and can be accessed here:
+ProjectApi: A RESTful .NET 8.0 Web API project that provides data about Git projects, utilizing Swashbuckle for API documentation. The API is hosted on Azure and can be accessed here:
 
 https://milleprojectapi.azurewebsites.net/swagger/index.html
 
@@ -28,9 +28,9 @@ Also contains code-behind for the contact form, utilizing System.Net.Mail and Sy
 #### WeatherViewComponent.cs: 
 A view component for displaying weather information, using Microsoft.Extensions.Caching.Memory for caching and Newtonsoft.Json for JSON parsing.
 
-## Restful ProjectApi
+## RESTful ProjectApi
 
-ProjectApi is a Restful .NET 8.0 web API that serves data about Git projects. It includes data initialization for seeding the database with project data and has two controllers for better SOC and usability.
+ProjectApi is a RESTful .NET 8.0 web API that serves data about Git projects. It includes data initialization for seeding the database with project data and has two controllers for better SOC and usability.
 
 ### Dependencies
 
@@ -52,7 +52,7 @@ TechStackController.cs: Handles CRUD operations for TechStacks
 
 DataInitializer.cs: Seeds the database with initial data.
 
-Program.cs: The entry point for the Restful API, configuring services and middleware.
+Program.cs: The entry point for the RESTful API, configuring services and middleware.
 
 ### Database
 
