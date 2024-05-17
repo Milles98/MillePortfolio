@@ -1,57 +1,58 @@
-
-
-https://milleprojectapi.azurewebsites.net/swagger/index.html
-
-https://millesportfolio.azurewebsites.net/
-
 # MillePortfolio & ProjectApi
 
 ## Project Overview
-
 This repository contains two main projects:
 
-1.	ProjectApi: This is a .NET 8.0 Web API project that uses the Swashbuckle.AspNetCore package for API documentation. The API is hosted on Azure and can be accessed here.
-2.	MillePortfolio: This is a .NET 8.0 Web project that uses the Newtonsoft.Json package for JSON operations. The website is hosted on Azure and can be accessed here.
-   
+ProjectApi: A .NET 8.0 Web API project that provides data about Git projects, utilizing Swashbuckle for API documentation. The API is hosted on Azure and can be accessed here:
+https://milleprojectapi.azurewebsites.net/swagger/index.html
+
+MillePortfolio: A .NET 8.0 web application showcasing a portfolio of projects, featuring a contact form and a weather view component. The website is hosted on Azure and can be accessed here:
+https://millesportfolio.azurewebsites.net/
+
 ## MillePortfolio
 
-MillePortfolio is a .NET 8.0 web application that uses Razor Pages. It showcases a portfolio of projects and includes features such as a contact form and a weather view component.
+MillePortfolio is built using .NET 8.0 and Razor Pages. It displays a portfolio of projects and includes interactive components.
 
 ## Dependencies
 
-•	Newtonsoft.Json 13.0.3
+Newtonsoft.Json 13.0.3
 
-## Files
+## Key Files
 
-•	Index.cshtml.cs: The code-behind for the main page of the portfolio. It contains a list of GitProject objects that represent the projects to be displayed.
+Index.cshtml.cs: Code-behind for the main page, containing a list of GitProject objects to be displayed.
+Also contains cone-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
 
-•	Contact.cshtml.cs: The code-behind for the contact form page. It uses System.Net.Mail and System.Net to send emails.
+Contact.cshtml.cs: Code-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
 
-•	WeatherViewComponent.cs: A view component that displays weather information. It uses Microsoft.Extensions.Caching.Memory for caching and Newtonsoft.Json for parsing JSON data.
+WeatherViewComponent.cs: A view component for displaying weather information, using Microsoft.Extensions.Caching.Memory for caching and Newtonsoft.Json for JSON parsing.
 
 ## ProjectApi
 
-ProjectApi is a .NET 8.0 web API that serves data about Git projects. It includes a data initializer that seeds the database with project data.
+ProjectApi is a .NET 8.0 web API that serves data about Git projects. It includes data initialization for seeding the database with project data and now has two controllers for better modularity.
 
 ## Dependencies
 
-•	Swashbuckle.AspNetCore 6.4.0
+Swashbuckle.AspNetCore 6.4.0
 
-## Files
+Microsoft.AspNetCore.JsonPatch 6.0.0
 
-•	GitProjectController.cs: The controller for the GitProject API. It uses Microsoft.AspNetCore.Mvc for action results and ProjectApi.Data for data access.
+Newtonsoft.Json 13.0.3
 
-•	DataInitializer.cs: A static class that seeds the database with project data. It uses ProjectApi.Models for the data models.
+Microsoft.Data.SqlClient 5.0.0
 
-•	Program.cs: The entry point for the API. It uses ProjectApi.Data for data access.
+Microsoft.EntityFrameworkCore.Tools 7.0.0
 
-## Models
+## Key Files
 
-Both projects use a GitProject model that represents a Git project. The model includes a ProjectName property.
+GitProjectController.cs: Handles CRUD operations for Git projects.
 
-## How to Run
+TechStackController.cs: Manages information about various technology stacks used in the projects.
 
-1.	Clone the repository.
-3.	Open the solution in Visual Studio.
-4.	Set the startup projects to MillePortfolio and ProjectApi.
-5.	Press F5 to run the projects.
+DataInitializer.cs: Seeds the database with initial data.
+
+Program.cs: The entry point for the API, configuring services and middleware.
+
+## Database
+
+The API is connected to an Azure SQL Database, ensuring reliable data storage and access.
+
