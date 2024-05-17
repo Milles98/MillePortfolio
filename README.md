@@ -23,7 +23,7 @@ Newtonsoft.Json 13.0.3
 
 #### Index.cshtml.cs: 
 Code-behind for the main page, containing a list of GitProject objects to be displayed.
-Also contains cone-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
+Also contains code-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
 
 #### Contact.cshtml.cs: 
 Code-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
