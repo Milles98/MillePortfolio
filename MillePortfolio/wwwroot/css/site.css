@@ -398,7 +398,7 @@ h2 {
 }
 
 .project-img {
-    height: 300px; /* Ange den önskade höjden */
+    height: 300px;
     width: auto;
     object-fit: contain;
 }
