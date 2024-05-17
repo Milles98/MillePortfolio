@@ -15,7 +15,7 @@ https://milleprojectapi.azurewebsites.net/swagger/index.html
 
 MillePortfolio is built using .NET 8.0 and Razor Pages. It displays a portfolio of projects and includes interactive components.
 
-## Dependencies
+### Dependencies
 
 Newtonsoft.Json 13.0.3
 
