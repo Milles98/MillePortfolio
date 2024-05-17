@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.JsonPatch;
 using ProjectApi.Models;
 using ProjectApi.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProjectApi.Controllers
 {
@@ -38,7 +39,7 @@ namespace ProjectApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new Git project.
+        /// Creates a new Git project (Admin only)
         /// </summary>
         /// <remarks>
         /// Sample request:
@@ -59,6 +60,7 @@ namespace ProjectApi.Controllers
         /// <response code="201">Returns the newly created Git project.</response>
         /// <response code="400">If the Git project is null or invalid.</response> 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateProject([FromBody] GitProjectDTO newProjectDto)
@@ -102,7 +104,7 @@ namespace ProjectApi.Controllers
 
 
         /// <summary>
-        /// Updates a Git project with a specified ID.
+        /// Updates a Git project with a specified ID (Admin only)
         /// </summary>
         /// <remarks>
         /// Sample requests:
@@ -120,6 +122,7 @@ namespace ProjectApi.Controllers
         /// <param name="patchDoc">The JSON Patch document with updates.</param>
         /// <returns>An updated Git project.</returns>
         [HttpPatch("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PatchProject(int id, [FromBody] JsonPatchDocument<GitProject> patchDoc)
         {
             if (patchDoc != null)
@@ -157,13 +160,14 @@ namespace ProjectApi.Controllers
         }
 
         /// <summary>
-        /// Deletes a Git project with a specified ID.
+        /// Deletes a Git project with a specified ID (Admin only)
         /// </summary>
         /// <param name="id">The ID of the Git project to delete.</param>
         /// <returns>No content.</returns>
         /// <response code="204">If the Git project is deleted successfully.</response>
         /// <response code="404">If the Git project is not found.</response> 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteProject(int id)
