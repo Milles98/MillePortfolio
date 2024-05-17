@@ -28,7 +28,8 @@ Also contains cone-behind for the contact form, utilizing System.Net.Mail and Sy
 #### Contact.cshtml.cs: 
 Code-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
 
-WeatherViewComponent.cs: A view component for displaying weather information, using Microsoft.Extensions.Caching.Memory for caching and Newtonsoft.Json for JSON parsing.
+#### WeatherViewComponent.cs: 
+A view component for displaying weather information, using Microsoft.Extensions.Caching.Memory for caching and Newtonsoft.Json for JSON parsing.
 
 ## ProjectApi
 
