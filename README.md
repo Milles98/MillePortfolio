@@ -19,7 +19,7 @@ MillePortfolio is built using .NET 8.0 and Razor Pages. It displays a portfolio 
 
 Newtonsoft.Json 13.0.3
 
-## Key Files
+### Key Files
 
 Index.cshtml.cs: Code-behind for the main page, containing a list of GitProject objects to be displayed.
 Also contains cone-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
@@ -32,7 +32,7 @@ WeatherViewComponent.cs: A view component for displaying weather information, us
 
 ProjectApi is a .NET 8.0 web API that serves data about Git projects. It includes data initialization for seeding the database with project data and now has two controllers for better modularity.
 
-## Dependencies
+### Dependencies
 
 Swashbuckle.AspNetCore 6.4.0
 
@@ -44,7 +44,7 @@ Microsoft.Data.SqlClient 5.0.0
 
 Microsoft.EntityFrameworkCore.Tools 7.0.0
 
-## Key Files
+### Key Files
 
 GitProjectController.cs: Handles CRUD operations for Git projects.
 
@@ -54,7 +54,7 @@ DataInitializer.cs: Seeds the database with initial data.
 
 Program.cs: The entry point for the API, configuring services and middleware.
 
-## Database
+### Database
 
 The API is connected to an Azure SQL Database, ensuring reliable data storage and access.
 
