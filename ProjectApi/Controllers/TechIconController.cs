@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectApi.Data;
@@ -37,7 +38,7 @@ namespace ProjectApi.Controllers
         }
 
         /// <summary>
-        /// Creates a new TechIcon.
+        /// Creates a new TechIcon (Admin only)
         /// </summary>
         /// <remarks>
         /// Sample request:
@@ -53,6 +54,7 @@ namespace ProjectApi.Controllers
         /// <response code="201">Returns the newly created TechIcon.</response>
         /// <response code="400">If the TechIcon is null or invalid.</response> 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateTechIcon([FromBody] TechIconDTO newTechIconDto)
@@ -77,7 +79,7 @@ namespace ProjectApi.Controllers
 
 
         /// <summary>
-        /// Updates a TechIcon with a specified ID.
+        /// Updates a TechIcon with a specified ID (Admin only)
         /// </summary>
         /// <remarks>
         /// Sample requests:
@@ -95,6 +97,7 @@ namespace ProjectApi.Controllers
         /// <param name="patchDoc">The JSON Patch document with updates.</param>
         /// <returns>An updated TechIcon.</returns>
         [HttpPatch("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PatchTechIcon(int id, [FromBody] JsonPatchDocument<TechIcon> patchDoc)
         {
             if (patchDoc != null)
@@ -132,13 +135,14 @@ namespace ProjectApi.Controllers
         }
 
         /// <summary>
-        /// Deletes a TechIcon with a specified ID.
+        /// Deletes a TechIcon with a specified ID (Admin only)
         /// </summary>
         /// <param name="id">The ID of the TechIcon to delete.</param>
         /// <returns>No content.</returns>
         /// <response code="204">If the TechIcon is deleted successfully.</response>
         /// <response code="404">If the TechIcon is not found.</response> 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteTechIcon(int id)
