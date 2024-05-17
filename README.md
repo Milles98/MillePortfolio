@@ -44,6 +44,12 @@ Microsoft.Data.SqlClient 5.0.0
 
 Microsoft.EntityFrameworkCore.Tools 7.0.0
 
+Microsoft.AspNetCore.Authentication.JwtBearer 8.0.5
+
+Microsoft.IdentityModel.Tokens 7.5.2
+
+System.IdentityModel.Tokens.Jwt 7.5.2
+
 ### Key Files
 
 GitProjectController.cs: Handles CRUD operations for Git projects.
