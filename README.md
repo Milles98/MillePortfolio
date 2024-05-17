@@ -48,7 +48,7 @@ Microsoft.EntityFrameworkCore.Tools 7.0.0
 
 GitProjectController.cs: Handles CRUD operations for Git projects.
 
-TechStackController.cs: Manages information about various technology stacks used in the projects.
+TechStackController.cs: Handles CRUD operations for TechStacks
 
 DataInitializer.cs: Seeds the database with initial data.
 
