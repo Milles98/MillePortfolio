@@ -21,10 +21,12 @@ Newtonsoft.Json 13.0.3
 
 ### Key Files
 
-Index.cshtml.cs: Code-behind for the main page, containing a list of GitProject objects to be displayed.
+#### Index.cshtml.cs: 
+Code-behind for the main page, containing a list of GitProject objects to be displayed.
 Also contains cone-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
 
-Contact.cshtml.cs: Code-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
+#### Contact.cshtml.cs: 
+Code-behind for the contact form, utilizing System.Net.Mail and System.Net to send emails.
 
 WeatherViewComponent.cs: A view component for displaying weather information, using Microsoft.Extensions.Caching.Memory for caching and Newtonsoft.Json for JSON parsing.
 
