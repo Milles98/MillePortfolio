@@ -30,7 +30,7 @@ A view component for displaying weather information, using Microsoft.Extensions.
 
 ## Restful ProjectApi
 
-ProjectApi is a Restful .NET 8.0 web API that serves data about Git projects. It includes data initialization for seeding the database with project data and now has two controllers for better modularity.
+ProjectApi is a Restful .NET 8.0 web API that serves data about Git projects. It includes data initialization for seeding the database with project data and has two controllers for better SOC and usability.
 
 ### Dependencies
 
