@@ -1,21 +1,31 @@
 ﻿@model MillePortfolio.Models.WeatherModel
 
 <a href="https://www.klart.se/se/" target="_blank" class="nav-link weather-color">
-    @if (double.TryParse(Model.Temperature, out var temp))
+    @if (!string.IsNullOrEmpty(Model.ConditionText))
     {
-        if (temp > 30)
+        if (Model.ConditionText.Contains("Sunny"))
         {
-            <i class="fas fa-sun"></i> <!-- sunny icon -->
+            <i class="fas fa-sun weather-sunny weather-icon"></i> 
         }
-        else if (temp > 20)
+        else if (Model.ConditionText.Contains("Partly cloudy"))
         {
-            <i class="fas fa-cloud-sun"></i> <!-- partly cloudy icon -->
+            <i class="fas fa-cloud-sun weather-partly-cloudy weather-icon"></i> 
         }
-        else
+        else if (Model.ConditionText.Contains("Cloudy"))
         {
-            <i class="fas fa-cloud"></i> <!-- cloudy icon -->
+            <i class="fas fa-cloud weather-cloudy weather-icon"></i> 
+        }
+        else if (Model.ConditionText.Contains("Rain"))
+        {
+            <i class="fas fa-cloud-rain weather-rainy weather-icon"></i>
         }
     }
+
+    @if (Model.WindSpeed > 20)
+    {
+    <i class="fas fa-wind weather-icon"></i> 
+    }
+
     @Model.Location
     @Model.Temperature&#8451;
 </a>

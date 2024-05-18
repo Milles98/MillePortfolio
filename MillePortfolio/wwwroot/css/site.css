@@ -557,3 +557,25 @@ h2 {
 .contact-btn {
     margin-bottom: 100px;
 }
+
+/*WEATHER API WEATHER API WEATHER API*/
+
+.weather-icon {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.weather-sunny {
+    color: yellow !important;
+}
+
+.weather-partly-cloudy {
+    color: lightgray !important;
+}
+
+.weather-cloudy {
+    color: gray !important;
+}
+
+.weather-rainy {
+    color: blue !important;
+}
