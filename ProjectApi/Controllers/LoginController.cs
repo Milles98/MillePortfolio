@@ -10,7 +10,7 @@ using System.Text;
 
 namespace ProjectApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     [EnableCors("AllowAll")]
     public class LoginController : ControllerBase
