@@ -39,8 +39,13 @@ namespace MillePortfolio.ViewComponents
                     var apiResponse = JsonConvert.DeserializeObject<WeatherApiResponse>(apiResponseJson);
                     weatherData.Location = apiResponse.location.name;
                     weatherData.Temperature = apiResponse.current.temp_c.ToString();
+                    weatherData.ConditionText = apiResponse.current.condition.text;
+                    weatherData.ConditionIcon = apiResponse.current.condition.icon;
+                    weatherData.WindSpeed = apiResponse.current.wind_kph;
+                    weatherData.Precipitation = apiResponse.current.precip_mm;
                     _cache.Set("Weather", weatherData, TimeSpan.FromMinutes(15));
                 }
+
 
                 else
                 {
