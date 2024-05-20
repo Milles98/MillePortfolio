@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Net.Mail;
 using System.Net;
 using System.Net.Http.Headers;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MillePortfolio.Pages
 {
@@ -12,12 +13,13 @@ namespace MillePortfolio.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly HttpClient _http;
+        private readonly IMemoryCache _memoryCache;
 
-        public IndexModel(ILogger<IndexModel> logger, HttpClient http)
+        public IndexModel(ILogger<IndexModel> logger, HttpClient http, IMemoryCache memoryCache)
         {
             _logger = logger;
             _http = http;
-            //GitProjects = new List<GitProject>();
+            _memoryCache = memoryCache;
         }
 
         public List<GitProject> GitProjects { get; set; }
@@ -31,16 +33,24 @@ namespace MillePortfolio.Pages
             _http.DefaultRequestHeaders.Accept.Clear();
             _http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await _http.GetAsync("/GitProject");
 
-            //var response = await _http.GetAsync("https://milleprojectapi.azurewebsites.net/GitProject");
-            if (response.IsSuccessStatusCode)
+            if (!_memoryCache.TryGetValue("GitProjects", out List<GitProject> cachedProjects))
             {
-                var json = await response.Content.ReadAsStringAsync();
-                if (!string.IsNullOrEmpty(json))
+                HttpResponseMessage response = await _http.GetAsync("/GitProject");
+                if (response.IsSuccessStatusCode)
                 {
-                    GitProjects = JsonConvert.DeserializeObject<List<GitProject>>(json);
+                    var json = await response.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(json))
+                    {
+                        GitProjects = JsonConvert.DeserializeObject<List<GitProject>>(json);
+
+                        _memoryCache.Set("GitProjects", GitProjects, TimeSpan.FromHours(1));
+                    }
                 }
+            }
+            else
+            {
+                GitProjects = cachedProjects;
             }
         }
 
