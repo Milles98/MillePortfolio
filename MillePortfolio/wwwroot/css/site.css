@@ -384,8 +384,8 @@ h2 {
     }
 
 .tech-icon {
-    width: 50px;
-    height: 40px;
+    width: 60px;
+    height: 50px;
     object-fit: cover;
 }
 
@@ -399,8 +399,10 @@ h2 {
 
 .project-img {
     height: 300px;
-    width: auto;
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 
 @media (max-width: 992px) {
