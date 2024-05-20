@@ -18,20 +18,10 @@
             <p class="text-collapsed description">@Model.Description</p>
             <button onclick="toggleText(this)" class="btn btn-show-more toggleButton btn-custom-width mx-auto" style="margin-bottom: 20px;"><i class="fa-solid fa-arrow-down"></i></button>
             <div class="button-container d-flex justify-content-between mt-auto">
-                @if (Model.ProjectName == "Bank Application" || Model.ProjectName == "Advertisement API")
-                {
-                    <a href="@Model.GithubUrl" target="_blank" class="btn btn-danger d-flex align-items-center justify-content-center btn-fixed-width" onclick="return false;" style="cursor: default;">
-                        <i class="fa-brands fa-github" style="font-size: 2rem; margin-right: 5px;"></i>
-                        <span>N/A</span>
-                    </a>
-                }
-                else
-                {
-                    <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary d-flex align-items-center justify-content-center btn-fixed-width">
-                        <i class="fa-brands fa-github" style="font-size: 2rem; margin-right: 5px;"></i>
-                        <span>GitHub</span>
-                    </a>
-                }
+                <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary d-flex align-items-center justify-content-center btn-fixed-width">
+                    <i class="fa-brands fa-github" style="font-size: 2rem; margin-right: 5px;"></i>
+                    <span>GitHub</span>
+                </a>
                 @if (!string.IsNullOrEmpty(Model.LiveDemoUrl))
                 {
                     <a href="@Model.LiveDemoUrl" target="_blank" class="btn btn-secondary d-flex align-items-center justify-content-center btn-fixed-width">

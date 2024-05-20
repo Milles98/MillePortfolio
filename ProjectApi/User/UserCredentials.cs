@@ -8,7 +8,7 @@
             {
                 UserName = "Mille",
                 EmailAddress = "mille.elfver98@gmail.com",
-                Password = "Nånting om kungen, ändra!",
+                Password = "XXXXXXXXXXX",
                 GivenName = "Mille",
                 SurName = "Elfver",
                 Role = "Admin",
