@@ -29,8 +29,6 @@ namespace MillePortfolio.ViewComponents
 
                 HttpResponseMessage response = await client.GetAsync("/v1/current.json?key=abe8320defb74b72adf111532242504&q=Sweden");
 
-                //var response = await client.GetAsync("http://api.weatherapi.com/v1/current.json?key=abe8320defb74b72adf111532242504&q=Sweden");
-
                 weatherData = new WeatherModel();
 
                 if (response.IsSuccessStatusCode)
@@ -45,8 +43,6 @@ namespace MillePortfolio.ViewComponents
                     weatherData.Precipitation = apiResponse.current.precip_mm;
                     _cache.Set("Weather", weatherData, TimeSpan.FromMinutes(15));
                 }
-
-
                 else
                 {
                     weatherData.Location = "Weather";
