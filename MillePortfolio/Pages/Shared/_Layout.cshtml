@@ -48,6 +48,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#contact">Kontakt</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                            <i id="darkModeToggle" class="fa-solid fa-moon text-white" style="cursor:pointer;"></i>
+                            <i id="lightModeToggle" class="fa-solid fa-sun text-white" style="display:none; cursor:pointer;"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +61,7 @@
     </header>
 
     <div>
-        <main role="main" class="pb-3 main-color">
+        <main role="main" class="pb-3 main-color" id="main-content">
             @RenderBody()
         </main>
     </div>
@@ -78,13 +84,30 @@
     <script>
         window.addEventListener("scroll", function () {
             var navbar = document.querySelector(".navbar");
-            var navbarBrand = document.querySelector(".navbar .navbar-brand");
-            var navbarToggler = document.querySelector(".navbar .navbar-toggler");
+            var darkModeToggle = document.getElementById('darkModeToggle');
             var isScrolled = window.scrollY > 0;
             navbar.classList.toggle("scrolled", isScrolled);
-            navbarBrand.style.color = isScrolled ? "black" : "white";
-            navbarToggler.style.color = isScrolled ? "black" : "white";
+            if (isScrolled) {
+                darkModeToggle.classList.add("scrolled");
+            } else {
+                darkModeToggle.classList.remove("scrolled");
+            }
         });
+    </script>
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            document.body.classList.add('dark-mode');
+            this.style.display = 'none';
+            document.getElementById('lightModeToggle').style.display = 'inline';
+        });
+
+        document.getElementById('lightModeToggle').addEventListener('click', function () {
+            document.body.classList.remove('dark-mode');
+            this.style.display = 'none';
+            document.getElementById('darkModeToggle').style.display = 'inline';
+        });
+
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)

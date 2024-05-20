@@ -266,6 +266,12 @@ h2 {
 
 /*ABOUT ABOUT ABOUT ABOUT ABOUT*/
 
+div.card-body.row {
+    margin-left: 0;
+    width: 100%;
+}
+
+
 .about-me-card {
     transition: transform 0.3s;
 }
@@ -587,4 +593,69 @@ a .project-img:hover {
 
 .weather-rainy {
     color: blue !important;
+}
+
+
+/*DARK MODE DARK MODE DARK MODE*/
+
+body.dark-mode .knowledge-start .card-body {
+    background-color: #fff !important;
+}
+
+
+body.dark-mode .card-body .card-text {
+    color: #fff !important;
+}
+
+
+body.dark-mode #main-content {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+body.dark-mode,
+body.dark-mode button,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode optgroup,
+body.dark-mode textarea {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+    body.dark-mode .card-body {
+        background-color: #444 !important;
+        color: #fff !important;
+        border: none !important;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode .footer {
+        background-color: #222 !important;
+        color: #fff !important;
+    }
+
+        body.dark-mode .navbar .nav-link,
+        body.dark-mode .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+    body.dark-mode #darkModeToggle,
+    body.dark-mode #lightModeToggle {
+        color: white !important;
+    }
+
+body:not(.dark-mode) #darkModeToggle,
+body:not(.dark-mode) #lightModeToggle {
+    color: black !important;
+}
+
+body:not(.dark-mode).scrolled #darkModeToggle,
+body.dark-mode.scrolled #lightModeToggle {
+    color: black !important;
+}
+
+body:not(.dark-mode).scrolled #lightModeToggle,
+body.dark-mode.scrolled #darkModeToggle {
+    color: white !important;
 }
