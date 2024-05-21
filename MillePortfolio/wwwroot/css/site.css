@@ -606,6 +606,14 @@ body.dark-mode h3.card-title {
     color: #fff !important;
 }
 
+body.dark-mode button.contact-btn:hover {
+    background-color: #5F8041 !important;
+}
+
+body.dark-mode button.toggleButton:hover {
+    background-color: #5F8041 !important;
+}
+
 body.dark-mode .card-body .card-text {
     color: #fff !important;
 }
