@@ -212,6 +212,14 @@ h2 {
     margin-top: -20px;
 }
 /*NAVBAR NAVBAR NAVBAR NAVBAR*/
+
+@media (min-width: 575px) and (max-width: 650px) {
+    .nav-contact {
+        display: none !important;
+    }
+}
+
+
 .navbar {
     position: fixed;
     top: 0;
@@ -575,6 +583,13 @@ a .project-img:hover {
 
 /*WEATHER API WEATHER API WEATHER API*/
 
+@media (min-width: 575px) and (max-width: 900px) {
+    .weather-color {
+        display: none;
+    }
+}
+
+
 .weather-icon {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -676,13 +691,18 @@ body.dark-mode.scrolled #darkModeToggle {
 
 /*SLIDER SLIDER SLIDER SLIDER*/
 
+@media (min-width: 768px) {
+    .switch {
+        margin-left: 8px;
+    }
+}
+
 .switch {
     position: relative;
     display: inline-block;
     width: 50px;
     height: 20px;
     margin-top: 10px;
-    margin-left: 5px;
 }
 
     .switch input {
