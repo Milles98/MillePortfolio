@@ -602,6 +602,9 @@ body.dark-mode .knowledge-start .card-body {
     background-color: #fff !important;
 }
 
+body.dark-mode h3.card-title {
+    color: #fff !important;
+}
 
 body.dark-mode .card-body .card-text {
     color: #fff !important;
@@ -659,3 +662,77 @@ body:not(.dark-mode).scrolled #lightModeToggle,
 body.dark-mode.scrolled #darkModeToggle {
     color: white !important;
 }
+
+
+
+
+/*SLIDER SLIDER SLIDER SLIDER*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider-icons {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 26px;
+    height: 26px;
+    left: 4px;
+    bottom: -3px;
+    align-items: center;
+    padding: 0 4px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    transform: translateX(0);
+}
+
+
+    .slider-icons i {
+        color: white;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider .slider-icons {
+    -webkit-transform: translateX(-26px);
+    -ms-transform: translateX(-26px);
+    transform: translateX(-26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round .slider-icons {
+        border-radius: 50%;
+    }
