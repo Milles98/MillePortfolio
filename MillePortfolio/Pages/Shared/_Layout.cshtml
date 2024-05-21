@@ -48,11 +48,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#contact">Kontakt</a>
                         </li>
+                        <!-- Rounded switch -->
                         <li class="nav-item">
-                            <a class="nav-link">
-                            <i id="darkModeToggle" class="fa-solid fa-moon text-white" style="cursor:pointer;"></i>
-                            <i id="lightModeToggle" class="fa-solid fa-sun text-white" style="display:none; cursor:pointer;"></i>
-                            </a>
+                            <label class="switch nav-link">
+                                <input type="checkbox" id="themeSwitch">
+                                <span class="slider round">
+                                    <div class="slider-icons">
+                                        <i class="fa-solid fa-moon" id="moonIcon"></i>
+                                        <i class="fa-solid fa-sun" id="sunIcon" style="display: none;"></i>
+                                    </div>
+                                </span>
+                            </label>
                         </li>
                     </ul>
                 </div>
@@ -96,19 +102,25 @@
     </script>
 
     <script>
-        document.getElementById('darkModeToggle').addEventListener('click', function () {
-            document.body.classList.add('dark-mode');
-            this.style.display = 'none';
-            document.getElementById('lightModeToggle').style.display = 'inline';
+        document.getElementById('themeSwitch').addEventListener('change', function () {
+            var moonIcon = document.getElementById('moonIcon');
+            var sunIcon = document.getElementById('sunIcon');
+            var sliderIcons = document.querySelector('.slider-icons');
+            if (this.checked) {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+                sliderIcons.style.transform = 'translateX(20px)';
+                document.body.classList.add('dark-mode');
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+                sliderIcons.style.transform = 'translateX(0)';
+                document.body.classList.remove('dark-mode');
+            }
         });
-
-        document.getElementById('lightModeToggle').addEventListener('click', function () {
-            document.body.classList.remove('dark-mode');
-            this.style.display = 'none';
-            document.getElementById('darkModeToggle').style.display = 'inline';
-        });
-
     </script>
+
+
 
     @await RenderSectionAsync("Scripts", required: false)
 
