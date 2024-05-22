@@ -123,27 +123,51 @@ namespace ProjectApi.Controllers
         /// <returns>An updated Git project.</returns>
         [HttpPatch("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> PatchProject(int id, [FromBody] JsonPatchDocument<GitProject> patchDoc)
+        public async Task<IActionResult> PatchProject(int id, [FromBody] JsonPatchDocument<GitProjectDTO> patchDoc)
         {
             if (patchDoc != null)
             {
-                var gitProject = await _context.GitProjects.FindAsync(id);
+                var gitProject = await _context.GitProjects.Include(p => p.Technologies).ThenInclude(t => t.TechIcon).FirstOrDefaultAsync(p => p.Id == id);
 
                 if (gitProject == null)
                 {
                     return NotFound();
                 }
 
-                patchDoc.ApplyTo(gitProject, error =>
+                var gitProjectDto = new GitProjectDTO
                 {
-                    string errorMessage = error.ErrorMessage;
-                    string affectedPath = error.AffectedObject.GetType().Name;
-                    ModelState.AddModelError(affectedPath, errorMessage);
-                });
+                    ProjectImg = gitProject.ProjectImg,
+                    ProjectName = gitProject.ProjectName,
+                    Date = gitProject.Date,
+                    Description = gitProject.Description,
+                    GithubUrl = gitProject.GithubUrl,
+                    LiveDemoUrl = gitProject.LiveDemoUrl,
+                    Technologies = gitProject.Technologies.Select(t => t.TechIcon.Id).ToList()
+                };
+
+                patchDoc.ApplyTo(gitProjectDto, ModelState);
 
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
+                }
+
+                gitProject.ProjectImg = gitProjectDto.ProjectImg;
+                gitProject.ProjectName = gitProjectDto.ProjectName;
+                gitProject.Date = gitProjectDto.Date;
+                gitProject.Description = gitProjectDto.Description;
+                gitProject.GithubUrl = gitProjectDto.GithubUrl;
+                gitProject.LiveDemoUrl = gitProjectDto.LiveDemoUrl;
+
+                _context.TechStacks.RemoveRange(gitProject.Technologies);
+
+                foreach (var techIconId in gitProjectDto.Technologies)
+                {
+                    var techIcon = await _context.TechIcons.FindAsync(techIconId);
+                    if (techIcon != null)
+                    {
+                        gitProject.Technologies.Add(new TechStack { TechIcon = techIcon });
+                    }
                 }
 
                 _context.GitProjects.Update(gitProject);
@@ -158,6 +182,7 @@ namespace ProjectApi.Controllers
                 return BadRequest(ModelState);
             }
         }
+
 
         /// <summary>
         /// Deletes a Git project with a specified ID (Admin only)
