@@ -100,6 +100,7 @@ h2 {
 .btn-secondary {
     background-color: #5f8041;
     border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important;
 }
 
     .btn-secondary:hover {
@@ -170,9 +171,18 @@ h2 {
     }
 }
 
+.left-btn {
+    margin-right: 15px;
+}
+
+.right-btn {
+    margin-left: 15px;
+}
+
 .equal-width {
     display: inline-block;
     text-align: center;
+    margin-top: 10px;
 }
 
 @media (min-width: 768px) {
