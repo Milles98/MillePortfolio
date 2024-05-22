@@ -358,7 +358,7 @@ div.card-body.row {
 
 
 .skill-image {
-    width: 100px;
+    width: 200px;
     height: 100px;
     object-fit: contain;
     background-color: white;
@@ -410,9 +410,9 @@ div.card-body.row {
     }
 
 .tech-icon {
-    width: 60px;
-    height: 50px;
-    object-fit: cover;
+    width: 50px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .portfolio-start h2 {
