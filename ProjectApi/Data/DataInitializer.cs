@@ -14,7 +14,7 @@ namespace ProjectApi.Data
 
         public void Initialize()
         {
-            //_context.Database.Migrate();
+            _context.Database.Migrate();
 
             if (!_context.TechIcons.Any() && !_context.GitProjects.Any())
             {
