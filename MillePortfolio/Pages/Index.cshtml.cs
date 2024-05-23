@@ -44,7 +44,7 @@ namespace MillePortfolio.Pages
                     {
                         GitProjects = JsonConvert.DeserializeObject<List<GitProject>>(json);
 
-                        _memoryCache.Set("GitProjects", GitProjects, TimeSpan.FromHours(1));
+                        _memoryCache.Set("GitProjects", GitProjects, TimeSpan.FromMinutes(15));
                     }
                 }
             }
