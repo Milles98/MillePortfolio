@@ -4,9 +4,9 @@
 
 This repository contains two main projects:
 
-1. **MillePortfolio**: A .NET 8.0 web application showcasing a portfolio of projects, featuring information about me and my knowledge, a contact form, and a weather view component. The website is hosted on Azure and can be accessed [Azure link here Portfolio](https://millesportfolio.azurewebsites.net/).
+1. **MillePortfolio**: A .NET 8.0 web application showcasing a portfolio of projects, featuring information about me and my knowledge, a contact form, and a weather view component. The website is hosted on Azure and can be accessed [here (Portfolio)](https://millesportfolio.azurewebsites.net/).
 
-2. **ProjectApi**: A RESTful .NET 8.0 Web API project that provides data about Git projects, utilizing Swashbuckle for API documentation. The API is hosted on Azure and can be accessed [Azure link here to Api](https://milleprojectapi.azurewebsites.net/swagger/index.html).
+2. **ProjectApi**: A RESTful .NET 8.0 Web API project that provides data about Git projects, utilizing Swashbuckle for API documentation. The API is hosted on Azure and can be accessed [here (Api)](https://milleprojectapi.azurewebsites.net/swagger/index.html).
 
 ## MillePortfolio
 
