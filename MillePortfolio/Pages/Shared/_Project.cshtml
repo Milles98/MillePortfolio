@@ -23,7 +23,8 @@
                     <img src="@tech.TechIcon.Url" alt="@tech.Technology logo" class="tech-icon mb-2 mx-3" />
                 }
             </div>
-            <p class="mt-2">Skapad: @Model.Date.ToString("yyyy-MM")</p>
+            @* <p class="mt-2">Skapad: @Model.Date.ToString("yyyy-MM")</p> *@
+            <p class="mt-2"><strong>Beskrivning:</strong></p>
             <p class="text-collapsed description">@Model.Description</p>
             <button onclick="toggleText(this)" class="btn btn-show-more toggleButton btn-custom-width mx-auto" style="margin-bottom: 20px;"><i class="fa-solid fa-arrow-down"></i></button>
             <div class="button-container d-flex justify-content-between mt-auto">
