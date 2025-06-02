@@ -36,7 +36,7 @@ namespace MillePortfolio.ViewComponents
                     var apiResponseJson = await response.Content.ReadAsStringAsync();
                     var apiResponse = JsonConvert.DeserializeObject<WeatherApiResponse>(apiResponseJson);
                     weatherData.Location = apiResponse.location.name;
-                    weatherData.Temperature = apiResponse.current.temp_c.ToString();
+                    weatherData.Temperature = Math.Round(apiResponse.current.temp_c).ToString("0");
                     weatherData.ConditionText = apiResponse.current.condition.text;
                     weatherData.ConditionIcon = apiResponse.current.condition.icon;
                     weatherData.WindSpeed = apiResponse.current.wind_kph;
