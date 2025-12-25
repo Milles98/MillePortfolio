@@ -43,6 +43,9 @@
                             <a class="nav-link text-white" href="#portfolio">Portfolio</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-white" href="#case-study">Case Study</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="#reference">Rekommendationer</a>
                         </li>
                         <li class="nav-item nav-contact">
@@ -73,7 +76,7 @@
 
     <footer class="border-top footer text-muted footer-bg">
         <div class="container text-center">
-            2025 - Mille Elfver -
+            2026 - Mille Elfver -
             <a class="footer-mail" href="mailto:mille.elfver98@gmail.com"><i class="fa-solid fa-envelope"></i>&ensp;mille.elfver98@gmail.com</a>
         </div>
         <div class="container text-center footer-number">
@@ -85,39 +88,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <script>
-        window.addEventListener("scroll", function () {
-            var navbar = document.querySelector(".navbar");
-            var darkModeToggle = document.getElementById('darkModeToggle');
-            var isScrolled = window.scrollY > 0;
-            navbar.classList.toggle("scrolled", isScrolled);
-            if (isScrolled) {
-                darkModeToggle.classList.add("scrolled");
-            } else {
-                darkModeToggle.classList.remove("scrolled");
-            }
-        });
-        
-        document.getElementById('themeSwitch').addEventListener('change', function () {
-            var moonIcon = document.getElementById('moonIcon');
-            var sunIcon = document.getElementById('sunIcon');
-            var sliderIcons = document.querySelector('.slider-icons');
-            if (this.checked) {
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-                sliderIcons.style.transform = 'translateX(20px)';
-                document.body.classList.add('dark-mode');
-            } else {
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-                sliderIcons.style.transform = 'translateX(0)';
-                document.body.classList.remove('dark-mode');
-            }
-        });
-    </script>
-
-
 
     @await RenderSectionAsync("Scripts", required: false)
 

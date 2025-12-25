@@ -1,64 +1,53 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Caching.Memory;
 using MillePortfolio.Models;
-using Newtonsoft.Json;
+using MillePortfolio.Data;
 using System.Net.Mail;
 using System.Net;
-using System.Net.Http.Headers;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace MillePortfolio.Pages
 {
 	public class IndexModel : PageModel
 	{
 		private readonly ILogger<IndexModel> _logger;
-		private readonly HttpClient _http;
-		private readonly IMemoryCache _memoryCache;
+		private readonly IMemoryCache _cache;
+		private static readonly TimeSpan RateLimitWindow = TimeSpan.FromMinutes(1);
 
-		public IndexModel(ILogger<IndexModel> logger, HttpClient http, IMemoryCache memoryCache)
+		public IndexModel(ILogger<IndexModel> logger, IMemoryCache cache)
 		{
 			_logger = logger;
-			_http = http;
-			_memoryCache = memoryCache;
+			_cache = cache;
 		}
 
-		public List<GitProject> GitProjects { get; set; }
+		public List<GitProject> GitProjects { get; set; } = new();
 
 		[BindProperty]
-		public ContactForm Contact { get; set; }
+		public ContactForm Contact { get; set; } = new();
 
-		public async Task OnGetAsync()
+		public void OnGet()
 		{
-			_http.BaseAddress = new Uri("https://milleprojectapi.azurewebsites.net");
-			_http.DefaultRequestHeaders.Accept.Clear();
-			_http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-			if (!_memoryCache.TryGetValue("GitProjects", out List<GitProject> cachedProjects))
-			{
-				HttpResponseMessage response = await _http.GetAsync("/GitProject");
-				if (response.IsSuccessStatusCode)
-				{
-					var json = await response.Content.ReadAsStringAsync();
-					if (!string.IsNullOrEmpty(json))
-					{
-						GitProjects = JsonConvert.DeserializeObject<List<GitProject>>(json);
-
-						_memoryCache.Set("GitProjects", GitProjects, TimeSpan.FromMinutes(15));
-					}
-				}
-			}
-			else
-			{
-				GitProjects = cachedProjects!;
-			}
+			GitProjects = ProjectData.GetProjects();
 		}
 
 		public async Task<IActionResult> OnPostAsync()
 		{
 			if (!ModelState.IsValid)
 			{
+				GitProjects = ProjectData.GetProjects();
 				return Page();
+			}
+
+			// Rate limiting - 1 message per minute per IP
+			var clientIp = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+			var cacheKey = $"ContactForm_{clientIp}";
+
+			if (_cache.TryGetValue(cacheKey, out _))
+			{
+				_logger.LogWarning("Rate limit exceeded for IP: {IP}", clientIp);
+				TempData["ShowToast"] = false;
+				TempData["ErrorMessage"] = "Vänta en minut innan du skickar igen";
+				return RedirectToPage("/Index");
 			}
 
 			try
@@ -73,12 +62,18 @@ namespace MillePortfolio.Pages
 				{
 					smtpClient.EnableSsl = true;
 					smtpClient.UseDefaultCredentials = false;
-					smtpClient.Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("EMAIL_USERNAME"), Environment.GetEnvironmentVariable("EMAIL_PASSWORD"));
+					smtpClient.Credentials = new NetworkCredential(
+						Environment.GetEnvironmentVariable("EMAIL_USERNAME"),
+						Environment.GetEnvironmentVariable("EMAIL_PASSWORD"));
 					smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 					await smtpClient.SendMailAsync(mailMessage);
 				}
 
+				// Set rate limit after successful send
+				_cache.Set(cacheKey, true, RateLimitWindow);
+
 				TempData["ShowToast"] = true;
+				_logger.LogInformation("Contact form submitted from IP: {IP}", clientIp);
 			}
 			catch (Exception ex)
 			{
@@ -87,10 +82,7 @@ namespace MillePortfolio.Pages
 				TempData["ErrorMessage"] = "Det gick inte att skicka meddelandet";
 			}
 
-
 			return RedirectToPage("/Index");
 		}
 	}
-
-
 }
