@@ -1,0 +1,207 @@
+﻿<div class="case-study-start container">
+    <h2 class="mb-4 shadow">Case Study: PDF Accessibility för SJ</h2>
+
+    <div class="case-study-content">
+        <div class="card shadow mb-4">
+            <div class="card-header case-study-header">
+                <h3>Översikt</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="overview-item">
+                            <span class="overview-label">Projekt:</span>
+                            <span class="overview-value">PDF Accessibility Compliance för SJ (Statens Järnvägar)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="overview-item">
+                            <span class="overview-label">Tidsperiod:</span>
+                            <span class="overview-value">September 2025 - December 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="overview-item">
+                            <span class="overview-label">Roll:</span>
+                            <span class="overview-value">.NET-utvecklare - Enda utvecklaren på projektet</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="overview-item">
+                            <span class="overview-label">Status:</span>
+                            <span class="overview-value">Slutfört - I produktion</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="overview-item">
+                            <span class="overview-label">Teknologier:</span>
+                            <div class="tech-badges mt-2">
+                                <span class="tech-badge">C# / .NET Framework 4.6.2</span>
+                                <span class="tech-badge">PDFsharp</span>
+                                <span class="tech-badge">WCAG 2.2 AA</span>
+                                <span class="tech-badge">PDF/UA</span>
+                                <span class="tech-badge">Adobe Acrobat Pro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header case-study-header">
+                <h3>Problemet</h3>
+            </div>
+            <div class="card-body">
+                <p class="case-study-text">
+                    SJ genererar över 800 000 fakturor och resedokument årligen. Befintligt system använde föråldrat PDFlib
+                    som inte uppfyllde nya WCAG 2.2 AA-krav för tillgänglighet. Personer med funktionsnedsättning kunde inte
+                    använda skärmläsare för att läsa sina dokument, vilket inte bara var dålig användarupplevelse utan också
+                    ett potentiellt juridiskt problem enligt svensk diskrimineringslagstiftning.
+                </p>
+                <h4 class="case-study-section-title mt-4">Tekniska utmaningar</h4>
+                <ul class="case-study-list">
+                    <li><strong>Legacy codebase:</strong> .NET Framework 4.6.2 med begränsad moderniseringspotential</li>
+                    <li><strong>Biblioteksbegränsningar:</strong> PDFsharp har inget native stöd för accessibility-taggning i templates</li>
+                    <li><strong>Omfattning:</strong> Flertal PDF-templates som alla behövde uppdateras</li>
+                    <li><strong>Komplexitet:</strong> PDF/UA-standarden kräver exakt strukturtaggning och metadata</li>
+                    <li><strong>Validering:</strong> Måste passa både automatiserade verktyg och manuell skärmläsartestning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header case-study-header">
+                <h3>Lösningen</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="case-study-section-title">1. Djupdykning i PDF-standarden</h4>
+                <p class="case-study-text">
+                    Började med att grundligt studera PDF/UA-specifikationen och WCAG 2.2 AA-krav.
+                    Testade olika verktyg (Adobe Acrobat Pro, PAC 2021) för att förstå vad som krävs för compliance.
+                </p>
+
+                <h4 class="case-study-section-title mt-4">2. PDFsharp Low-Level Manipulation</h4>
+                <p class="case-study-text">
+                    Eftersom PDFsharp inte stödjer accessibility-taggning direkt, utvecklade jag en custom lösning:
+                </p>
+                <ul class="case-study-list">
+                    <li>Gick ner på PDF-objektnivå för att direkt manipulera struktur-trädet</li>
+                    <li>Implementerade korrekt taggning för paragrafer, headings, listor, tabeller</li>
+                    <li>Skapade metadata-entries för Title, Language, MarkInfo</li>
+                    <li>Säkerställde korrekt reading order för skärmläsare</li>
+                </ul>
+
+                <h4 class="case-study-section-title mt-4">3. Template Modernisering</h4>
+                <p class="case-study-text">
+                    Skrev om template-genereringen för att:
+                </p>
+                <ul class="case-study-list">
+                    <li>Säkerställa semantiskt korrekt HTML-liknande struktur i PDFs</li>
+                    <li>Lägga till alt-text för alla bilder och logotyper</li>
+                    <li>Implementera korrekt tabell-struktur med headers</li>
+                    <li>Säkerställa sufficient color contrast (WCAG krav)</li>
+                </ul>
+
+                <h4 class="case-study-section-title mt-4">4. Automatiserad Validering</h4>
+                <p class="case-study-text">
+                    Integrerade validering i build-processen för att säkerställa att alla genererade PDFs uppfyller standarden.
+                </p>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header case-study-header">
+                <h3>Resultat & Impact</h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                        <div class="impact-metric">
+                            <h2 class="impact-number">100%</h2>
+                            <p class="impact-label">WCAG 2.2 AA Compliance</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="impact-metric">
+                            <h2 class="impact-number">800k+</h2>
+                            <p class="impact-label">Dokument per år</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="impact-metric">
+                            <h2 class="impact-number">6+</h2>
+                            <p class="impact-label">Veckors arbete</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="impact-metric">
+                            <h2 class="impact-number">0</h2>
+                            <p class="impact-label">Accessibility-fel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="case-study-section-title mt-4">Affärsnytta</h4>
+                <ul class="case-study-list">
+                    <li>Juridisk compliance med svensk diskrimineringslagstiftning</li>
+                    <li>Förbättrad användarupplevelse för personer med funktionsnedsättning</li>
+                    <li>Modernare teknisk stack (PDFsharp vs föråldrat PDFlib)</li>
+                    <li>Reusable patterns för framtida PDF-generering</li>
+                </ul>
+
+                <h4 class="case-study-section-title mt-4">Lärdomar</h4>
+                <ul class="case-study-list">
+                    <li>Djup förståelse av PDF-interna struktur och low-level manipulation</li>
+                    <li>Expertkunskap inom WCAG 2.2 och PDF/UA-standarder</li>
+                    <li>Erfarenhet av att arbeta med legacy-system och teknisk skuld</li>
+                    <li>Vikten av accessibility - design for all users from day one</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header case-study-header">
+                <h3>Teknisk Deep Dive</h3>
+            </div>
+            <div class="card-body">
+                <h4 class="case-study-section-title">Exempel: Struktur-taggning i PDFsharp</h4>
+                <p class="case-study-text">
+                    PDFsharp exponerar inte ett API för accessibility-taggning, så jag behövde arbeta direkt med PDF-objekten:
+                </p>
+                <pre class="code-example"><code>// Skapa StructTreeRoot för accessibility
+var catalog = document.Internals.Catalog;
+var structTreeRoot = new PdfDictionary(document);
+structTreeRoot.Elements["/Type"] = new PdfName("/StructTreeRoot");
+
+// Definiera parent tree för taggad content
+var parentTree = new PdfDictionary(document);
+structTreeRoot.Elements["/ParentTree"] = parentTree;
+
+// Tagga paragraf med korrekt role
+var paragraphTag = new PdfDictionary(document);
+paragraphTag.Elements["/S"] = new PdfName("/P");
+paragraphTag.Elements["/P"] = structTreeRoot.Reference;
+
+// Säkerställ korrekt reading order
+paragraphTag.Elements["/K"] = new PdfInteger(sequenceNumber);
+</code></pre>
+
+                <h4 class="case-study-section-title mt-4">Validering</h4>
+                <p class="case-study-text">
+                    Varje genererad PDF validerades mot:
+                </p>
+                <ul class="case-study-list">
+                    <li><strong>Adobe Acrobat Pro DC:</strong> Accessibility Full Check</li>
+                    <li><strong>PAC 2021:</strong> PDF Accessibility Checker</li>
+                    <li><strong>NVDA Screen Reader:</strong> Manuell testning av reading order</li>
+                    <li><strong>Color Contrast Analyzer:</strong> WCAG contrast requirements</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

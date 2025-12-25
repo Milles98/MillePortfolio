@@ -1,8 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
-
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient(); // Needed for WeatherViewComponent
 
 var app = builder.Build();
 
